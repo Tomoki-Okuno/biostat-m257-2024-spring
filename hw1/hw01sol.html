@@ -14658,11 +14658,11 @@ Match?: false
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[82]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">Inf</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;LHS: &quot;</span><span class="p">,</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">x</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;Match?: &quot;</span><span class="p">,</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
@@ -14683,7 +14683,7 @@ Match?: false
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>LHS: NaN
+<pre>0 * x = NaN
 Match?: false
 </pre>
 </div>
@@ -14696,11 +14696,11 @@ Match?: false
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[83]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">NaN</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;LHS: &quot;</span><span class="p">,</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">x</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;Match?: &quot;</span><span class="p">,</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
@@ -14721,7 +14721,7 @@ Match?: false
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>LHS: NaN
+<pre>0 * x = NaN
 Match?: false
 </pre>
 </div>
@@ -14748,7 +14748,7 @@ Match?: false
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[80]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Initialize variables to store an example where x / a != x * (1 / a)</span>
@@ -14822,7 +14822,7 @@ RHS: 0.05263157894736842
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.0019</span>
@@ -14842,7 +14842,7 @@ RHS: 0.05263157894736842
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[76]:</div>
 
 
 
@@ -16191,12 +16191,31 @@ RHS: 0.024280646193237745
 <p>Note a unit triangular matrix is a triangular matrix with all diagonal entries being 1.</p>
 <p>Q6.1. The product of two upper (lower) triangular matrices is upper (lower) triangular.</p>
 <p><strong>Solution</strong></p>
+<p>We can prove this even though the two confortable matrices are not square. Let $\mathbf A = (a_{ij}) \in\mathbb R^{p\times q}$ and $\mathbf B = (b_{jk}) \in\mathbb R^{q\times r}$ be both upper triangular matrices. In other words, we have $a_{ij} = 0 \ (i &gt; j)$ and $b_{jk} = 0 \ (j &gt; k)$. Further let $\mathbf C = \mathbf{AB} = (c_{ik}) \in\mathbb R^{p\times r}$.</p>
+<p>If $i &gt; q$, then
+$$
+\begin{align*}
+    c_{ik} = \sum_{j=1}^q a_{ij} b_{jk} = 0 \quad\because a_{ij} = 0.
+\end{align*}
+$$
+regardless of $k$.</p>
+<p>If $q \ge i &gt; k$, then
+$$
+\begin{align*}
+    c_{ik}
+    &amp;= \sum_{j=1}^q a_{ij} b_{jk}\\
+    &amp;= \sum_{j=1}^{i-1} a_{ij} b_{jk} + \sum_{j=i}^{q} a_{ij} b_{jk}\\
+    &amp;= \sum_{j=1}^{i-1} 0 \cdot b_{jk} + \sum_{j=i}^{q} a_{ij} \cdot 0\\
+    &amp;= 0.
+\end{align*}
+$$
+Therefore, at least $c_{ik} = 0$ ($i &gt; k$), i.e., $\mathbf C$ is also upper triangular. Taking transpose shows the lower version, that is, $\mathbf C' = \mathbf B'\mathbf A'$ is lower triangular for lower trangular matrices $\mathbf A'$ and $\mathbf B'$.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[85]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">## set dimension</span>
@@ -16231,11 +16250,11 @@ RHS: 0.024280646193237745
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>5×5 UpperTriangular{Float64, Matrix{Float64}}:
- 0.562252  0.180614  0.741707  0.121506  0.096343
-  ⋅        0.405571  0.837735  0.989185  0.325227
-  ⋅         ⋅        0.644318  0.102387  0.434974
-  ⋅         ⋅         ⋅        0.487408  0.370212
-  ⋅         ⋅         ⋅         ⋅        0.713407</pre>
+ 0.27413  0.398844  0.973696  0.859962   0.714692
+  ⋅       0.415875  0.431178  0.813478   0.151219
+  ⋅        ⋅        0.233417  0.286546   0.560967
+  ⋅        ⋅         ⋅        0.0803679  0.224138
+  ⋅        ⋅         ⋅         ⋅         0.360488</pre>
 </div>
 
 </div>
@@ -16250,11 +16269,11 @@ RHS: 0.024280646193237745
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>5×5 UpperTriangular{Float64, Matrix{Float64}}:
- 0.375688  0.607144  0.937406  0.0333211  0.893589
-  ⋅        0.534555  0.298292  0.807758   0.812896
-  ⋅         ⋅        0.667448  0.706065   0.980346
-  ⋅         ⋅         ⋅        0.758999   0.254745
-  ⋅         ⋅         ⋅         ⋅         0.713918</pre>
+ 0.3077  0.0235651  0.103959  0.0572771  0.349701
+  ⋅      0.564952   0.853618  0.0588612  0.495087
+  ⋅       ⋅         0.708376  0.13429    0.904331
+  ⋅       ⋅          ⋅        0.720345   0.70772
+  ⋅       ⋅          ⋅         ⋅         0.777404</pre>
 </div>
 
 </div>
@@ -16401,12 +16420,43 @@ RHS: 0.024280646193237745
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Q6.2. The inverse of an upper (lower) triangular matrix is upper (lower) triangular.</p>
+<p><strong>Solution</strong></p>
+<p>Find $\mathbf A \mathbf B$ such that $\mathbf{AB} = \mathbf I_n$, where $\mathbf A \in \mathbb R^{n\times n}$ is an upper triangular matrix. Let $\mathbf b_j$ be the $j$-th column of $\mathbf B$, then we have
+$$\begin{align*}
+    \begin{pmatrix}
+        a_{11} &amp; \cdots &amp; a_{1j} &amp; \cdots &amp; a_{1, n-1} &amp; a_{1n}\\
+        \vdots  &amp;  \ddots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+        0 &amp;  \cdots &amp; a_{jj} &amp; \cdots &amp; a_{j, n-1} &amp; a_{jn}\\
+        \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots\\
+        0 &amp; \cdots &amp; 0 &amp; \cdots &amp; a_{n-1, n-1} &amp; a_{n-1, n}\\
+        0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 &amp; a_{nn}
+    \end{pmatrix}
+    \begin{pmatrix}
+        b_{1j}\\
+        \vdots\\
+        b_{jj}\\
+        \vdots\\
+        b_{n-1, j}\\
+        b_{nj}
+    \end{pmatrix}
+    = \begin{pmatrix}
+        0\\
+        \vdots\\
+        1\\
+        \vdots\\
+        0\\
+        0
+    \end{pmatrix}.
+\end{align*}
+$$
+Note that $a_{jj} \ne 0$, $j = 1, \ldots, n$ since otherwise $\mathbf A$ is not invertible.</p>
+<p>The backward calculation gives $b_{nj} = b_{n-1, j} = \cdots = b_{j+1, j} = 0$, i.e., $b_{ij} = 0$ for $i &gt; j$. This means that $\mathbf B = \mathbf A^{-1}$ is upper triangular. Taking transpose shows the lower version.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[86]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">## set dimension</span>
@@ -16443,11 +16493,11 @@ RHS: 0.024280646193237745
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>5×5 UpperTriangular{Float64, Matrix{Float64}}:
- 0.0450822  0.586559  0.724644  0.886489  0.315674
-  ⋅         0.870778  0.953903  0.745325  0.150654
-  ⋅          ⋅        0.23603   0.190556  0.449126
-  ⋅          ⋅         ⋅        0.917191  0.438478
-  ⋅          ⋅         ⋅         ⋅        0.725793</pre>
+ 0.713949  0.491825  0.245023  0.0510157  0.201131
+  ⋅        0.58978   0.265515  0.0806506  0.0458038
+  ⋅         ⋅        0.550536  0.861967   0.992871
+  ⋅         ⋅         ⋅        0.465644   0.708627
+  ⋅         ⋅         ⋅         ⋅         0.839849</pre>
 </div>
 
 </div>
@@ -16462,11 +16512,11 @@ RHS: 0.024280646193237745
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>5×5 UpperTriangular{Float64, Matrix{Float64}}:
- 22.1817  -14.9417  -7.71484  -7.69451     2.87635
-   ⋅        1.1484  -4.64119   0.0310505   2.61487
-   ⋅         ⋅       4.23675  -0.880231   -2.08995
-   ⋅         ⋅        ⋅        1.09029    -0.658681
-   ⋅         ⋅        ⋅         ⋅          1.3778</pre>
+ 1.40066  -1.16803  -0.0600589   0.160026  -0.335755
+  ⋅        1.69555  -0.817738    1.22007   -0.155177
+  ⋅         ⋅        1.81641    -3.36241    0.689686
+  ⋅         ⋅         ⋅          2.14756   -1.81202
+  ⋅         ⋅         ⋅           ⋅         1.19069</pre>
 </div>
 
 </div>
@@ -16481,11 +16531,11 @@ RHS: 0.024280646193237745
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>5×5 LowerTriangular{Float64, Matrix{Float64}}:
- 0.685916    ⋅         ⋅          ⋅         ⋅ 
- 0.0761696  0.445428   ⋅          ⋅         ⋅ 
- 0.0919889  0.639407  0.842752    ⋅         ⋅ 
- 0.0865848  0.218382  0.0691558  0.902434   ⋅ 
- 0.906902   0.367416  0.861607   0.643249  0.394274</pre>
+ 0.54385    ⋅         ⋅          ⋅         ⋅ 
+ 0.230959  0.529007   ⋅          ⋅         ⋅ 
+ 0.246597  0.920112  0.507114    ⋅         ⋅ 
+ 0.439774  0.411479  0.174553   0.600089   ⋅ 
+ 0.955082  0.368867  0.0783635  0.121656  0.458838</pre>
 </div>
 
 </div>
@@ -16500,11 +16550,11 @@ RHS: 0.024280646193237745
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>5×5 LowerTriangular{Float64, Matrix{Float64}}:
-  1.4579       ⋅          ⋅           ⋅        ⋅ 
- -0.249306    2.24503     ⋅           ⋅        ⋅ 
-  0.0300172  -1.70333    1.18659      ⋅        ⋅ 
- -0.08185    -0.412749  -0.0909312   1.10811   ⋅ 
- -3.05318     2.30358   -2.4447     -1.80786  2.53631</pre>
+  1.83874     ⋅          ⋅          ⋅         ⋅ 
+ -0.802777   1.89034     ⋅          ⋅         ⋅ 
+  0.562431  -3.42984    1.97194     ⋅         ⋅ 
+ -0.960658  -0.298533  -0.573595   1.66642    ⋅ 
+ -3.02337   -0.854745  -0.184699  -0.441834  2.17942</pre>
 </div>
 
 </div>
@@ -16522,14 +16572,302 @@ RHS: 0.024280646193237745
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li><p>The product of two unit upper (lower) triangular matrices is unit upper (lower) triangular.</p>
-</li>
-<li><p>The inverse of a unit upper (lower) triangular matrix is unit upper (lower) triangular.</p>
-</li>
-<li><p>An orthogonal upper (lower) triangular matrix is diagonal. (You just need to prove this.)</p>
-</li>
-</ol>
+<p>Q6.3. The product of two unit upper (lower) triangular matrices is unit upper (lower) triangular.</p>
+<p><strong>Solution</strong></p>
+<p>The proof is the same as Q.6.1 since a unit upper triangular matrix is a special cases of an upper triangular matrix.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="c">## Upper matrices</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">UnitUpperTriangular</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">UnitUpperTriangular</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">*</span> <span class="n">B</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitUpperTriangular{Float64, Matrix{Float64}}:
+ 1.0  0.0429008  0.290389  0.404145  0.130544
+  ⋅   1.0        0.56475   0.812461  0.571772
+  ⋅    ⋅         1.0       0.896642  0.674707
+  ⋅    ⋅          ⋅        1.0       0.813207
+  ⋅    ⋅          ⋅         ⋅        1.0</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitUpperTriangular{Float64, Matrix{Float64}}:
+ 1.0  0.593318  0.144932   0.51034   0.366728
+  ⋅   1.0       0.0186707  0.685783  0.414212
+  ⋅    ⋅        1.0        0.384542  0.51392
+  ⋅    ⋅         ⋅         1.0       0.53954
+  ⋅    ⋅         ⋅          ⋅        1.0</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>5×5 UnitUpperTriangular{Float64, Matrix{Float64}}:
+ 1.0  0.636219  0.436122  1.05557  0.882332
+  ⋅   1.0       0.583421  1.71541  1.71458
+  ⋅    ⋅        1.0       1.28118  1.6724
+  ⋅    ⋅         ⋅        1.0      1.35275
+  ⋅    ⋅         ⋅         ⋅       1.0</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="c">## Lower matrices</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">UnitLowerTriangular</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">UnitLowerTriangular</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">*</span> <span class="n">B</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitLowerTriangular{Float64, Matrix{Float64}}:
+ 1.0        ⋅         ⋅         ⋅         ⋅ 
+ 0.745842  1.0        ⋅         ⋅         ⋅ 
+ 0.685856  0.594524  1.0        ⋅         ⋅ 
+ 0.546894  0.296539  0.201576  1.0        ⋅ 
+ 0.440062  0.899005  0.654258  0.461616  1.0</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitLowerTriangular{Float64, Matrix{Float64}}:
+ 1.0         ⋅         ⋅         ⋅         ⋅ 
+ 0.781927   1.0        ⋅         ⋅         ⋅ 
+ 0.0323984  0.615112  1.0        ⋅         ⋅ 
+ 0.876732   0.796965  0.369539  1.0        ⋅ 
+ 0.391809   0.876303  0.711081  0.397134  1.0</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>5×5 UnitLowerTriangular{Float64, Matrix{Float64}}:
+ 1.0       ⋅        ⋅         ⋅        ⋅ 
+ 1.52777  1.0       ⋅         ⋅        ⋅ 
+ 1.18313  1.20964  1.0        ⋅        ⋅ 
+ 1.66203  1.2175   0.571116  1.0       ⋅ 
+ 1.96074  2.54564  1.53593   0.85875  1.0</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Q6.4. The inverse of a unit upper (lower) triangular matrix is unit upper (lower) triangular.</p>
+<p><strong>Solution</strong></p>
+<p>The proof is the same as Q.6.2 for the same reason as Q6.3.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="c">## create random unit upper triangular matrix A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">UnitUpperTriangular</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+
+<span class="c">## create random unit lower triangular matrix A</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">UnitLowerTriangular</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitUpperTriangular{Float64, Matrix{Float64}}:
+ 1.0  0.378217  0.263194  0.190539  0.392738
+  ⋅   1.0       0.422532  0.166485  0.588675
+  ⋅    ⋅        1.0       0.199686  0.981356
+  ⋅    ⋅         ⋅        1.0       0.617441
+  ⋅    ⋅         ⋅         ⋅        1.0</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitUpperTriangular{Float64, Matrix{Float64}}:
+ 1.0  -0.378217  -0.103385  -0.106927   -0.00261232
+  ⋅    1.0       -0.422532  -0.0821112  -0.123322
+  ⋅     ⋅         1.0       -0.199686   -0.858062
+  ⋅     ⋅          ⋅         1.0        -0.617441
+  ⋅     ⋅          ⋅          ⋅          1.0</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitLowerTriangular{Float64, Matrix{Float64}}:
+ 1.0        ⋅         ⋅         ⋅         ⋅ 
+ 0.215618  1.0        ⋅         ⋅         ⋅ 
+ 0.286259  0.754216  1.0        ⋅         ⋅ 
+ 0.425776  0.881208  0.699135  1.0        ⋅ 
+ 0.566619  0.993676  0.765902  0.441461  1.0</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>5×5 UnitLowerTriangular{Float64, Matrix{Float64}}:
+  1.0         ⋅          ⋅          ⋅         ⋅ 
+ -0.215618   1.0         ⋅          ⋅         ⋅ 
+ -0.123636  -0.754216   1.0         ⋅         ⋅ 
+ -0.149333  -0.353909  -0.699135   1.0        ⋅ 
+ -0.191746  -0.259783  -0.457262  -0.441461  1.0</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Q6.5. An orthogonal upper (lower) triangular matrix is diagonal. (You just need to prove this.)</p>
+<p><strong>Solution</strong></p>
+<p>Assume that $\mathbf Q$ is an orthogonal upper (lower) triangular matrix. By definition, we have $\mathbf Q' = \mathbf Q^{-1}$. By Q6.2, $\mathbf Q^{-1}$ is also upper (lower) triangular. However, $\mathbf Q'$ is lower (upper) triangluar, suggesting that $\mathbf Q$ must be diagonal to sarisfy $\mathbf Q' = \mathbf Q^{-1}$.</p>
 
 </div>
 </div>
@@ -16544,7 +16882,7 @@ $$
 (\mathbf Q_1\mathbf Q_2)'\mathbf Q_1\mathbf Q_2 &amp;= \mathbf Q_2'(\mathbf Q_1'\mathbf Q_1)\mathbf Q_2 = \mathbf Q_2'\mathbf Q_2 = \mathbf I,
 \end{align*}
 $$
-proving that $\mathbf Q_1\mathbf Q_2$ is also orthogonal.</p>
+proving that $\mathbf Q_1\mathbf Q_2$ is also orthogonal by definition.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16810,10 +17148,10 @@ proving that $\mathbf Q_1\mathbf Q_2$ is also orthogonal.</p>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span>
@@ -16822,6 +17160,42 @@ proving that $\mathbf Q_1\mathbf Q_2$ is also orthogonal.</p>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>bitstring(1) = &#34;0000000000000000000000000000000000000000000000000000000000000001&#34;
+bitstring(-1) = &#34;1111111111111111111111111111111111111111111111111111111111111111&#34;
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[64]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#34;1111111111111111111111111111111111111111111111111111111111111111&#34;</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
