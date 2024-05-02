@@ -14273,7 +14273,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">versioninfo</span><span class="p">()</span>
@@ -14296,8 +14296,8 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Julia Version 1.10.2
-Commit bd47eca2c8a (2024-03-01 10:14 UTC)
+<pre>Julia Version 1.10.0
+Commit 3120989f39b (2023-12-25 18:01 UTC)
 Build Info:
   Official https://julialang.org/ release
 Platform Info:
@@ -14306,9 +14306,7 @@ Platform Info:
   WORD_SIZE: 64
   LIBM: libopenlibm
   LLVM: libLLVM-15.0.7 (ORCJIT, apple-m1)
-Threads: 1 default, 0 interactive, 1 GC (on 4 virtual cores)
-Environment:
-  JULIA_NUM_THREADS = 
+  Threads: 2 on 4 virtual cores
 </pre>
 </div>
 </div>
@@ -14326,7 +14324,7 @@ Environment:
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Pkg</span>
@@ -14381,7 +14379,7 @@ Environment:
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">LinearAlgebra</span><span class="p">,</span> <span class="n">Random</span>
@@ -14420,7 +14418,7 @@ where</p>
 $$
     L(\boldsymbol{\beta}, \boldsymbol{\Sigma}, \sigma^2) = 
     (2\pi)^{-n_i/2}\vert\mathbf{\Omega}_i\vert^{-1/2}
-    \exp\left[-\frac {(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})'\mathbf{\Omega}_i^{-1}(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})} 2\right],
+    \exp\left[-\frac {(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})^T\mathbf{\Omega}_i^{-1}(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})} 2\right],
 $$
 and thus the log-likelihood $\ell(\boldsymbol{\beta}, \boldsymbol{\Sigma}, \sigma^2)$ is given by
 $$
@@ -14430,7 +14428,7 @@ $$
 
 <pre><code>- \frac{n_i} 2 \ln(2\pi)
 - \frac 1 2 \ln\vert\mathbf{\Omega}_i\vert
-- \frac 1 2 (\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})'\mathbf{\Omega}_i^{-1}(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta}).
+- \frac 1 2 (\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})^T\mathbf{\Omega}_i^{-1}(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta}).
 </code></pre>
 <p>\end{align}
 $$</p>
@@ -14447,7 +14445,7 @@ $$</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># define a type that holds LMM datum</span>
@@ -14481,9 +14479,9 @@ $$</p>
     <span class="n">ztx</span>        <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="o">*</span> <span class="n">X</span>
     <span class="n">ztz</span>        <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span>
     <span class="n">storage_qq</span> <span class="o">=</span> <span class="n">similar</span><span class="p">(</span><span class="n">ztz</span><span class="p">)</span>
-    <span class="n">xty</span>      <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span> <span class="c"># added</span>
-    <span class="n">zty</span>      <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span> <span class="c"># added</span>
-    <span class="n">yty</span>      <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c"># added</span>
+    <span class="n">xty</span>        <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span> <span class="c"># added</span>
+    <span class="n">zty</span>        <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span> <span class="c"># added</span>
+    <span class="n">yty</span>        <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c"># added</span>
     <span class="n">LmmObs</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">storage_p</span><span class="p">,</span> <span class="n">storage_q</span><span class="p">,</span> <span class="n">xtx</span><span class="p">,</span> <span class="n">ztx</span><span class="p">,</span> <span class="n">ztz</span><span class="p">,</span> <span class="n">storage_qq</span><span class="p">,</span> <span class="n">xty</span><span class="p">,</span> <span class="n">zty</span><span class="p">,</span> <span class="n">yty</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
@@ -14501,12 +14499,12 @@ $$</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>LmmObs</pre>
 </div>
 
@@ -14537,19 +14535,19 @@ $$
 Hence, taking the log gives
 $$
 \begin{align*}
-\ln\vert\mathbf{\Omega}_i\vert = n_i\ln\sigma^2 + \ln\vert \mathbf{I}_{q} + \sigma^{-2}\mathbf{L}'\mathbf{Z}_i'\mathbf{Z}_i\mathbf{L}\vert
+\ln\vert\mathbf{\Omega}_i\vert = n_i\ln\sigma^2 + \ln\vert \mathbf{I}_{q} + \sigma^{-2}\mathbf{L}'\mathbf{Z}_i'\mathbf{Z}_i\mathbf{L}\vert.
 \end{align*}
 $$
-Using the Binomial inversion formula shown in hw1 Q5.3, we have
+Using the Woodbury formula shown in hw1 Q5.3, we have
 $$
 \begin{align*}
 \mathbf{\Omega}_i^{-1}
 &amp;= (\sigma^2 \mathbf{I}_{n_i} + \mathbf{Z}_i\boldsymbol{\Sigma}\mathbf{Z}_i')^{-1}\\
 &amp;= (\sigma^2 \mathbf{I}_{n_i} + \mathbf{Z}_i\mathbf{L}\mathbf{L}'\mathbf{Z}_i')^{-1}\\
-&amp;= \sigma^{-2} \mathbf I_{q} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{I}_q + \sigma^{-2}\mathbf{L}'\mathbf{Z}_i'\mathbf{Z}_i\mathbf{L})^{-1}\mathbf{L}'\mathbf{Z}_i'
+&amp;= \sigma^{-2} \mathbf I_{q} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{I}_q + \sigma^{-2}\mathbf{L}'\mathbf{Z}_i'\mathbf{Z}_i\mathbf{L})^{-1}\mathbf{L}'\mathbf{Z}_i'.
 \end{align*}
 $$
-Then, the third term without the coefficient can be expanded as follows:
+Then, the third term of the log-likelihood (without the coefficient) can be expanded as follows:
 $$
 \begin{align*}
 (\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})'\mathbf{\Omega}_i^{-1}(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})
@@ -14561,14 +14559,14 @@ $$
 \mathbf{L}'\mathbf{Z}_i'(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta}),
 \end{align*}
 $$
-where $\mathbf{L}'\mathbf{Z}_i'(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})\in \mathbb R^q$.</li>
+where $\mathbf{L}'\mathbf{Z}_i'(\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta})\in \mathbb R^q$, which can be stored in <code>storage_q</code>.</li>
 </ul>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Finally, by another Cholesky decomposition $\mathbf{I}_q + \sigma^{-2}\mathbf{L}'\mathbf{Z}_i'\mathbf{Z}_i\mathbf{L} = \mathbf{M} \mathbf{M}'$, the log-likelihood $(1)$ can be changed to
+<p>Finally, by another Cholesky decomposition $\mathbf{I}_q + \sigma^{-2}\mathbf{L}'\mathbf{Z}_i'\mathbf{Z}_i\mathbf{L} = \mathbf{M} \mathbf{M}'$, the log-likelihood $(1)$ can change to
 $$
 \begin{align*}
     \ell(\boldsymbol{\beta}, \boldsymbol{\Sigma}, \sigma^2) 
@@ -14587,19 +14585,18 @@ $$
 </code></pre>
 <p>\end{align*}
 $$
-In addition, the following expansion of the numarator in the 4th term reduces more time and memory:
+In addition, the following expansion of the numarator in the 3rd term reduces more time and memory:
 $$
 |\mathbf{y}_i - \mathbf{X}_i \boldsymbol{\beta}|_2^2
 = |\mathbf{y}_i|_2^2 + \boldsymbol{\beta}'(\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i),
 $$
-where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\in\mathbb R^p$.</p>
-<p>For computational reason, I store <code>M</code> in <code>L</code>, which is preallocated.</p>
+where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\in\mathbb R^p$, which can be stored in <code>storage_p</code>.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">logl!</span><span class="p">(</span>
@@ -14610,7 +14607,7 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
     <span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="kt">AbstractFloat</span>
     <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">size</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">size</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">Z</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     
-    <span class="c">## 1st term = -n/2 * log(2πσ²) ----------------------------------------- ##</span>
+    <span class="c">## 1st term = -(n/2) log(2πσ²) ----------------------------------------- ##</span>
     <span class="n">LogLik</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="nb">π</span> <span class="o">*</span> <span class="n">σ²</span><span class="p">)</span>
 
     <span class="c">## 2nd term = -logdet(M), where M = L&#39;Z&#39;ZL / σ² + I -------------------- ##</span>
@@ -14622,17 +14619,15 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
     <span class="k">end</span>
 
     <span class="n">LAPACK</span><span class="o">.</span><span class="n">potrf!</span><span class="p">(</span><span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">storage_qq</span><span class="p">)</span> <span class="c"># M = cholesky!(Symmetric(obs.storage_qq, :L))</span>
-    <span class="n">LogLik</span> <span class="o">-=</span> <span class="n">logdet</span><span class="p">(</span><span class="kt">LowerTriangular</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">storage_qq</span><span class="p">))</span>
+    <span class="n">LogLik</span> <span class="o">-=</span> <span class="n">logdet</span><span class="p">(</span><span class="kt">LowerTriangular</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">storage_qq</span><span class="p">))</span> <span class="c"># logdet(M)</span>
     <span class="c"># LogLik -= sum(log.(diag(obs.storage_qq))) # requires 2 allocations</span>
 
-    <span class="c">## 3rd term = -1/2 * ||y||^2 / σ² + β&#39;(X&#39;Xβ - 2X&#39;y) / σ² --------------- ##</span>
-    <span class="c"># mul!(obs.storage_p, transpose(obs.X), obs.y) # X&#39;y but takes time</span>
+    <span class="c">## 3rd term = -1/2 (||y||^2 + β&#39;(X&#39;Xβ - 2X&#39;y)) / σ² -------------------- ##</span>
     <span class="n">obs</span><span class="o">.</span><span class="n">storage_p</span> <span class="o">.=</span> <span class="n">obs</span><span class="o">.</span><span class="n">xty</span> <span class="c"># X&#39;y</span>
     <span class="n">BLAS</span><span class="o">.</span><span class="n">symv!</span><span class="p">(</span><span class="sc">&#39;U&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">xtx</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">storage_p</span><span class="p">)</span> <span class="c"># X&#39;Xβ - 2X&#39;y</span>
     <span class="n">LogLik</span> <span class="o">-=</span> <span class="p">(</span><span class="mi">1</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">yty</span> <span class="o">+</span> <span class="n">dot</span><span class="p">(</span><span class="n">β</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">storage_p</span><span class="p">))</span> <span class="o">/</span> <span class="n">σ²</span>
 
-    <span class="c">## 4th term = 1/2 * ||M⁻¹(L&#39;Z&#39;y - L&#39;Z&#39;Xβ)||² / (σ²)² ------------------- ##</span>
-    <span class="c"># mul!(obs.storage_q, transpose(obs.Z), obs.y) # Z&#39;y but takes time</span>
+    <span class="c">## 4th term = 1/2 ||M⁻¹(L&#39;Z&#39;y - L&#39;Z&#39;Xβ)||² / (σ²)² --------------------- ##</span>
     <span class="n">obs</span><span class="o">.</span><span class="n">storage_q</span> <span class="o">.=</span> <span class="n">obs</span><span class="o">.</span><span class="n">zty</span> <span class="c"># Z&#39;y</span>
     <span class="n">BLAS</span><span class="o">.</span><span class="n">gemv!</span><span class="p">(</span><span class="sc">&#39;N&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">ztx</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">storage_q</span><span class="p">)</span> <span class="c"># Z&#39;y - Z&#39;Xβ</span>
     <span class="n">BLAS</span><span class="o">.</span><span class="n">trmv!</span><span class="p">(</span><span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="sc">&#39;N&#39;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">storage_q</span><span class="p">)</span> <span class="c"># L&#39;Z&#39;y - L&#39;Z&#39;Xβ</span>
@@ -14659,12 +14654,12 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>logl! (generic function with 1 method)</pre>
 </div>
 
@@ -14677,6 +14672,7 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note that there was little differnece in running time between calculating each term of the log likelihood as above and combining them as commented out at the end.</p>
 <p><strong>Hint</strong>: This function shouldn't be very long. Mine, obeying 92-character rule, is 30 lines. If you find yourself writing very long code, you're on the wrong track. Think about algorithm (flop count) first then use BLAS functions to reduce memory allocations.</p>
 
 </div>
@@ -14689,7 +14685,7 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="p">(</span><span class="mi">257</span><span class="p">)</span>
@@ -14723,13 +14719,13 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>LmmObs{Float64}([-1.450910909560209, 1.5185224894450862, 5.265021705624027, 4.485272594164557, 0.694969966642933, 1.7723256696372405, 1.1065838446466518, 3.729166811829607, 4.288899999400642, 2.8241842645202406  …  4.058027151891634, 1.0909724390970443, 0.026692243086209766, -0.8927757653299448, 6.94725248926293, 3.5193020855673436, 4.914007299083773, 2.1610206566690797, 1.857389542694909, 6.513818951020866], [1.0 0.6790633442371218 … 0.5400611947971554 -0.632040682052606; 1.0 1.2456776800889142 … -0.4818455756130373 0.6467830314674976; … ; 1.0 0.0733124748775436 … 0.6125080259511859 0.4181258283983667; 1.0 -1.336609049786048 … -0.18567490803712938 1.0745977099307227], [1.0 -1.0193326822839996 -0.15855601254314888; 1.0 1.7462667837699666 -0.4584376230657152; … ; 1.0 1.4843185594903878 0.42458303115266854; 1.0 0.3791714762820068 0.25150666970865837], [3.1422011366e-314, 2.6665448194e-314, 3.1422609304e-314, 2.6665490803e-314, 0.0], [3.142623029e-314, 3.142623045e-314, 1.275e-321], [2000.0 -16.870943820386742 … -4.678756487678475 -33.013941932083; -16.870943820386742 1972.1480562704003 … 42.18373658967015 -18.84275280240305; … ; -4.678756487678475 42.18373658967015 … 1962.0317062119739 31.94767484234441; -33.013941932083 -18.84275280240305 … 31.94767484234441 1952.6108146037132], [2000.0 -16.870943820386742 … -4.678756487678475 -33.013941932083; 3.207786785008361 51.53509357013415 … -5.599636592147186 -25.64263779027382; 5.886499963119173 -108.8221415845363 … 84.16510226928119 -24.939700580608623], [2000.0 3.207786785008361 5.886499963119173; 3.207786785008361 1988.894096853326 -57.31891154469458; 5.886499963119173 -57.31891154469458 2009.4519396527112], [3.140441156e-314 3.140441188e-314 3.1404412353e-314; 3.140441172e-314 3.1404412037e-314 3.140441251e-314; 2.6544000297e-314 3.1404412195e-314 3.14665236e-314], [4209.066417097505, -1849.2613478849603, 1339.123019322386, 396.4337131159357, 1659.0630888170558], [4209.066417097505, -447.626646909811, -2763.9856125358615], 20378.320552515157)</pre>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>LmmObs{Float64}([-1.450910909560209, 1.5185224894450862, 5.265021705624027, 4.485272594164557, 0.694969966642933, 1.7723256696372405, 1.1065838446466518, 3.729166811829607, 4.288899999400642, 2.8241842645202406  …  4.058027151891634, 1.0909724390970443, 0.026692243086209766, -0.8927757653299448, 6.94725248926293, 3.5193020855673436, 4.914007299083773, 2.1610206566690797, 1.857389542694909, 6.513818951020866], [1.0 0.6790633442371218 … 0.5400611947971554 -0.632040682052606; 1.0 1.2456776800889142 … -0.4818455756130373 0.6467830314674976; … ; 1.0 0.0733124748775436 … 0.6125080259511859 0.4181258283983667; 1.0 -1.336609049786048 … -0.18567490803712938 1.0745977099307227], [1.0 -1.0193326822839996 -0.15855601254314888; 1.0 1.7462667837699666 -0.4584376230657152; … ; 1.0 1.4843185594903878 0.42458303115266854; 1.0 0.3791714762820068 0.25150666970865837], [2.155864319e-314, 2.155864319e-314, 2.155864319e-314, 2.247312649e-314, 2.5912441084e-314], [2.6792736896e-314, 2.578915384e-314, 2.6025307574e-314], [2000.0 -16.870943820386742 … -4.678756487678475 -33.013941932083; -16.870943820386742 1972.1480562704003 … 42.18373658967015 -18.84275280240305; … ; -4.678756487678475 42.18373658967015 … 1962.0317062119739 31.94767484234441; -33.013941932083 -18.84275280240305 … 31.94767484234441 1952.6108146037132], [2000.0 -16.870943820386742 … -4.678756487678475 -33.013941932083; 3.207786785008361 51.53509357013415 … -5.599636592147186 -25.64263779027382; 5.886499963119173 -108.8221415845363 … 84.16510226928119 -24.939700580608623], [2000.0 3.207786785008361 5.886499963119173; 3.207786785008361 1988.894096853326 -57.31891154469458; 5.886499963119173 -57.31891154469458 2009.4519396527112], [5.0e-324 0.0 5.0e-324; 5.0e-324 0.0 5.0e-324; 5.0e-324 5.0e-324 0.0], [4209.066417097505, -1849.2613478849603, 1339.123019322386, 396.4337131159357, 1659.0630888170558], [4209.066417097505, -447.626646909811, -2763.9856125358615], 20378.320552515157)</pre>
 </div>
 
 </div>
@@ -14747,7 +14743,7 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">μ</span>  <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">β</span>
@@ -14769,12 +14765,12 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>-3256.1793358058317</pre>
 </div>
 
@@ -14793,7 +14789,7 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="kt">Matrix</span><span class="p">(</span><span class="n">cholesky</span><span class="p">(</span><span class="n">Σ</span><span class="p">)</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
@@ -14813,12 +14809,12 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>-3256.1793358058335</pre>
 </div>
 
@@ -14837,7 +14833,7 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@assert</span> <span class="n">logl!</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="kt">Matrix</span><span class="p">(</span><span class="n">cholesky</span><span class="p">(</span><span class="n">Σ</span><span class="p">)</span><span class="o">.</span><span class="n">L</span><span class="p">),</span> <span class="n">σ²</span><span class="p">)</span> <span class="n">≈</span> <span class="n">logpdf</span><span class="p">(</span><span class="n">mvn</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -14851,13 +14847,19 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It looks successful.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Q4-Efficiency-(30-pts)">Q4 Efficiency (30 pts)<a class="anchor-link" href="#Q4-Efficiency-(30-pts)">&#182;</a></h2><p>Benchmarking your code and compare to the Distributions.jl function <code>logpdf</code>.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># benchmark the `logpdf` function in Distribution.jl</span>
@@ -14877,22 +14879,22 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 5671 samples with 1 evaluation.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">805.833 μs</span> … <span class="ansi-magenta-fg">  9.479 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 89.72%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">842.333 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">876.841 μs</span> ± <span class="ansi-green-fg">156.244 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.28% ±  1.63%
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>BenchmarkTools.Trial: 5546 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">797.583 μs</span> … <span class="ansi-magenta-fg">  7.601 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 86.11%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">848.042 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">893.888 μs</span> ± <span class="ansi-green-fg">155.433 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.13% ±  1.16%
 
-    ▅█▅▂ <span class="ansi-blue-fg"> </span>     <span class="ansi-green-fg"> </span>                                                 
-  ▂▇█████<span class="ansi-blue-fg">▇</span>▅▅▄▄▄<span class="ansi-green-fg">▃</span>▃▂▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▂▂▂▁▂▂▂▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
-  806 μs<span class="ansi-black-intense-fg">           Histogram: frequency by time</span>         1.14 ms <span class="ansi-bold">&lt;</span>
+   █▅▄▃▁▁  <span class="ansi-blue-fg"> </span>       <span class="ansi-green-fg"> </span>                                             
+  ▅██████▇▆<span class="ansi-blue-fg">▆</span>▅▄▃▃▂▂▂<span class="ansi-green-fg">▂</span>▂▂▂▂▃▄▆▅▄▃▃▂▂▂▂▂▂▂▂▂▃▄▃▃▃▃▂▂▂▁▁▁▁▁▁▁▂▂▂▁▁▁▁ ▃
+  798 μs<span class="ansi-black-intense-fg">           Histogram: frequency by time</span>         1.15 ms <span class="ansi-bold">&lt;</span>
 
- Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">31.77 KiB</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">3</span>.</pre>
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">31.52 KiB</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">3</span>.</pre>
 </div>
 
 </div>
@@ -14904,7 +14906,7 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># benchmark your implementation</span>
@@ -14925,20 +14927,20 @@ where $\mathbf{X}_i'\mathbf{X}_i\boldsymbol{\beta} - 2\mathbf{X}_i'\mathbf{y}_i\
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 10000 samples with 171 evaluations.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">612.573 ns</span> … <span class="ansi-magenta-fg">792.643 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">633.772 ns               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">634.118 ns</span> ± <span class="ansi-green-fg">  8.961 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>BenchmarkTools.Trial: 10000 samples with 143 evaluations.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">718.531 ns</span> … <span class="ansi-magenta-fg"> 1.040 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">777.678 ns              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">777.508 ns</span> ± <span class="ansi-green-fg">16.163 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
 
-                  ▁▃▄▅▅▅▅▃ ▃▃▃▄▄<span class="ansi-blue-fg">▆</span>█▇▇▅▂ ▁                         
-  ▁▁▁▁▁▁▂▂▂▃▃▄▄▅▇▇████████▇█████<span class="ansi-blue-fg">█</span>██████████▇▇▆▆▅▅▄▃▄▄▃▃▃▂▂▂▂▂▂▂ ▄
-  613 ns<span class="ansi-black-intense-fg">           Histogram: frequency by time</span>          656 ns <span class="ansi-bold">&lt;</span>
+                         ▁▂▅▃▆██<span class="ansi-blue-fg">█</span>▆▆▄▄▂▁                         
+  ▂▁▂▂▂▂▂▂▂▂▃▃▃▃▄▄▄▄▅▅▅▆▇███████<span class="ansi-blue-fg">█</span>██████▇▅▄▄▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ ▄
+  719 ns<span class="ansi-black-intense-fg">          Histogram: frequency by time</span>          838 ns <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
@@ -14962,7 +14964,7 @@ where $x$ is the speedup of your program against the standard method.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># this is the points you&#39;ll get</span>
@@ -14982,12 +14984,12 @@ where $x$ is the speedup of your program against the standard method.</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>30.0</pre>
 </div>
 
@@ -15012,7 +15014,7 @@ where $x$ is the speedup of your program against the standard method.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">clamp</span><span class="p">(</span><span class="mi">30</span> <span class="o">-</span> <span class="n">median</span><span class="p">(</span><span class="n">bm2</span><span class="p">)</span><span class="o">.</span><span class="n">memory</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
@@ -15031,12 +15033,12 @@ where $x$ is the speedup of your program against the standard method.</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>30.0</pre>
 </div>
 
@@ -15056,6 +15058,8 @@ where $x$ is the speedup of your program against the standard method.</p>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Q6-Misc-(15-pts)">Q6 Misc (15 pts)<a class="anchor-link" href="#Q6-Misc-(15-pts)">&#182;</a></h2><p>Coding style, Git workflow, etc. For reproducibity, make sure we (TA and myself) can run your Jupyter Notebook. That is how we grade Q4 and Q5. If we cannot run it, you will get zero points.</p>
+<p><strong>Solution</strong></p>
+<p>I have confirmed that the solution is reproducible.</p>
 
 </div>
 </div>
