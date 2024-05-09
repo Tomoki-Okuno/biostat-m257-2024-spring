@@ -14386,10 +14386,10 @@ Environment:
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[111]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># remove package Plots</span>
@@ -14401,97 +14401,6 @@ Environment:
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-ArgumentError: Package DataFrames not found in current path.
-
-- Run `import Pkg; Pkg.add(&#34;DataFrames&#34;)` to install the DataFrames package.
-
-
-
-Stacktrace:
-
-  [1] macro expansion
-
-    @ ./loading.jl:1772 [inlined]
-
-  [2] macro expansion
-
-    @ ./lock.jl:267 [inlined]
-
-  [3] __require(into::Module, mod::Symbol)
-
-    @ Base ./loading.jl:1753
-
-  [4] #invoke_in_world#3
-
-    @ ./essentials.jl:926 [inlined]
-
-  [5] invoke_in_world
-
-    @ ./essentials.jl:923 [inlined]
-
-  [6] require(into::Module, mod::Symbol)
-
-    @ Base ./loading.jl:1746
-
-  [7] eval
-
-    @ ./boot.jl:385 [inlined]
-
-  [8] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)
-
-    @ Base ./loading.jl:2076
-
-  [9] #invokelatest#2
-
-    @ ./essentials.jl:892 [inlined]
-
- [10] invokelatest
-
-    @ ./essentials.jl:889 [inlined]
-
- [11] (::VSCodeServer.var&#34;#216#217&#34;{VSCodeServer.NotebookRunCellArguments, String})()
-
-    @ VSCodeServer ~/.vscode/extensions/julialang.language-julia-1.76.2/scripts/packages/VSCodeServer/src/serve_notebook.jl:19
-
- [12] withpath(f::VSCodeServer.var&#34;#216#217&#34;{VSCodeServer.NotebookRunCellArguments, String}, path::String)
-
-    @ VSCodeServer ~/.vscode/extensions/julialang.language-julia-1.76.2/scripts/packages/VSCodeServer/src/repl.jl:274
-
- [13] notebook_runcell_request(conn::VSCodeServer.JSONRPC.JSONRPCEndpoint{Base.PipeEndpoint, Base.PipeEndpoint}, params::VSCodeServer.NotebookRunCellArguments)
-
-    @ VSCodeServer ~/.vscode/extensions/julialang.language-julia-1.76.2/scripts/packages/VSCodeServer/src/serve_notebook.jl:13
-
- [14] dispatch_msg(x::VSCodeServer.JSONRPC.JSONRPCEndpoint{Base.PipeEndpoint, Base.PipeEndpoint}, dispatcher::VSCodeServer.JSONRPC.MsgDispatcher, msg::Dict{String, Any})
-
-    @ VSCodeServer.JSONRPC ~/.vscode/extensions/julialang.language-julia-1.76.2/scripts/packages/JSONRPC/src/typed.jl:67
-
- [15] serve_notebook(pipename::String, outputchannel_logger::Base.CoreLogging.SimpleLogger; crashreporting_pipename::String)
-
-    @ VSCodeServer ~/.vscode/extensions/julialang.language-julia-1.76.2/scripts/packages/VSCodeServer/src/serve_notebook.jl:139
-
- [16] top-level scope
-
-    @ ~/.vscode/extensions/julialang.language-julia-1.76.2/scripts/notebook/notebook.jl:35</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14543,11 +14452,11 @@ $$
 Note $\sum_{j=1}^n p_{ij} = 1$. Then $i$-th row vector of $\mathbf{P}$ can be written as
 $$
 \begin{align*}
-\mathbf{p}_i' = 
+\mathbf{p}_i^T = 
     \left\{
         \begin{array}{l}
-            \dfrac{p}{r_i}\mathbf{a}_i' + \dfrac{1-p}{n}\mathbf{1}_n'　&amp; r_i &gt; 0\\
-            \dfrac{1}{n}\mathbf{1}_n' &amp; r_i = 0
+            \dfrac{p}{r_i}\mathbf{a}_i^T + \dfrac{1-p}{n}\mathbf{1}_n^T　&amp; r_i &gt; 0\\
+            \dfrac{1}{n}\mathbf{1}_n^T &amp; r_i = 0
         \end{array}
     \right., \quad i = 1, \ldots n,
 \end{align*}
@@ -14555,7 +14464,7 @@ $$
 suggesting that $\mathbf{P}$ has a form of
 $$
 \begin{align*}
-    \mathbf{P} = \mathbf{DA} + \mathbf{b}\mathbf 1_n',
+    \mathbf{P} = \mathbf{DA} + \mathbf{z}\mathbf 1_n^T,
 \end{align*}
 $$
 where</p>
@@ -14563,7 +14472,7 @@ where</p>
 <li>$\mathbf{D} = \text{diag}(d_i)\in\mathbb R^{n\times n}$ with $d_i = p/r_i$ if $r_i &gt; 0$ and $d_i = 0$ if $r_i = 0$,</li>
 <li>$\mathbf b = (b_i)\in\mathbb R^n$ with $b_i = (1-p)/n$ if $r_i &gt; 0$ and $b_i = 1/n$ if $r_i = 0$.</li>
 </ul>
-<p>Note that $\mathbf{b}\mathbf 1_n'$ (outer product matrix) is a rank 1 matrix.</p>
+<p>Note that $\mathbf{DA}$ is sparse and $\mathbf{z}\mathbf 1_n^T$ (outer product matrix) is of rank 1.</p>
 
 </div>
 </div>
@@ -14915,7 +14824,7 @@ where</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">count</span><span class="p">(</span><span class="o">!</span><span class="n">iszero</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
@@ -14961,7 +14870,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">count</span><span class="p">(</span><span class="o">!</span><span class="n">iszero</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
@@ -14999,14 +14908,14 @@ count(isone, A) = 5105039
 
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 7956 samples with 1 evaluation.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">615.667 μs</span> … <span class="ansi-magenta-fg"> 2.731 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">616.917 μs              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">626.122 μs</span> ± <span class="ansi-green-fg">53.714 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+<pre>BenchmarkTools.Trial: 6032 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">697.792 μs</span> … <span class="ansi-magenta-fg">  3.600 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">807.250 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">824.243 μs</span> ± <span class="ansi-green-fg">139.211 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
 
-  █<span class="ansi-blue-fg">▇</span>▄▄▂▂<span class="ansi-green-fg">▂</span>▁▁▁▁                                   ▂ ▂            ▁
-  █<span class="ansi-blue-fg">█</span>████<span class="ansi-green-fg">█</span>████▇▆▆▅▅▆▆▄▄▅▆▅▅▄▃▄▃▃▄▃▁▄▄▃▃▄▁▁▁▃▃▄▁▁▁████▇▆▇▅▄▆▅▅▅▅ █
-  616 μs<span class="ansi-black-intense-fg">        </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>       720 μs <span class="ansi-bold">&lt;</span>
+  ▇▂        █<span class="ansi-blue-fg">█</span>▃<span class="ansi-green-fg">▂</span>          ▅▂                  ▁▂                ▁
+  ███▅▅▅▆▅▅▆█<span class="ansi-blue-fg">█</span>█<span class="ansi-green-fg">█</span>█▇▇▇▆▆▄▅▄▄███▆▇▆▆▄▅▅▄▅▄▅▄▄▃▂▄▄██▇▅▇▆▅▆▅▄▅▄▅▅▄▄▃ █
+  698 μs<span class="ansi-black-intense-fg">        </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>        1.3 ms <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
@@ -15020,7 +14929,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">nnz</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -15058,14 +14967,14 @@ count(isone, A) = 5105039
 
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 10000 samples with 994 evaluations.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">27.498 ns</span> … <span class="ansi-magenta-fg"> 3.717 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 98.40%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">28.127 ns              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">29.314 ns</span> ± <span class="ansi-green-fg">45.743 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>2.16% ±  1.39%
+<pre>BenchmarkTools.Trial: 10000 samples with 992 evaluations.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">31.334 ns</span> … <span class="ansi-magenta-fg"> 2.984 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 96.94%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">43.136 ns              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">48.482 ns</span> ± <span class="ansi-green-fg">40.610 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>1.01% ±  1.37%
 
-   ▃█▂   <span class="ansi-blue-fg"> </span>            <span class="ansi-green-fg"> </span>                                        
-  ▃████▃▂<span class="ansi-blue-fg">▂</span>▂▃▂▂▂▅▅▅▃▃▄▂<span class="ansi-green-fg">▂</span>▂▂▂▂▂▂▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
-  27.5 ns<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>          33 ns <span class="ansi-bold">&lt;</span>
+  █   ▁▅   <span class="ansi-blue-fg"> </span>   <span class="ansi-green-fg"> </span>                                               
+  █▅▆▃██▃▂▇<span class="ansi-blue-fg">▄</span>▃▂▁<span class="ansi-green-fg">▁</span>▁▄▅██▆▆▄▃▂▂▁▁▁▁▁▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
+  31.3 ns<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>         110 ns <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">16 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">1</span>.</pre>
 </div>
@@ -15085,7 +14994,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">## count zeros in row sums (out-degree)</span>
@@ -15127,7 +15036,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">in_degrees</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -15187,7 +15096,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[77]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">histogram</span><span class="p">(</span><span class="n">filter</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">≤</span> <span class="mi">500</span><span class="p">,</span> <span class="n">in_degrees</span><span class="p">[</span><span class="o">:</span><span class="p">]),</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;In-degree distribution (≤ 500)&quot;</span><span class="p">)</span>
@@ -15243,7 +15152,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[121]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">## Top 20 largest in-degrees</span>
@@ -15314,7 +15223,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[113]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">out_degrees</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
@@ -15384,7 +15293,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[120]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">histogram</span><span class="p">(</span><span class="n">filter</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">≤</span> <span class="mi">20</span><span class="p">,</span> <span class="n">out_degrees</span><span class="p">[</span><span class="o">:</span><span class="p">]),</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Out-degree distribution (≤ 500)&quot;</span><span class="p">)</span>
@@ -15451,7 +15360,7 @@ count(isone, A) = 5105039
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[122]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">## Top 20 largest out-degrees</span>
@@ -15510,13 +15419,13 @@ count(isone, A) = 5105039
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Finally, we visualize the sparsity pattern of $\mathbf{A}$ or a submatrix of $\mathbf{A}$ say <code>A[1:10000, 1:10000]</code>.</p>
+<p>Finally, we visualize the sparsity pattern of <code>A[1:10000, 1:10000]</code>.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[132]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10000</span><span class="p">])</span>
@@ -15582,6 +15491,85 @@ count(isone, A) = 5105039
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Solution</strong></p>
+<p>As mentioned in Q2, if we approach this problem as a linear system, our goal is to solve the linear equation
+$$
+\mathbf{P}^T\mathbf{x} = \mathbf{x}  \quad \text{s.t.} \quad\mathbf 1^T\mathbf x = 1.
+$$
+Replacing the first equation by $\mathbf 1^T\mathbf x = 1$ gives another linear equation without constraint
+$$
+\mathbf{P}_{\text{new}}^T\mathbf{x} = \mathbf{b},
+$$
+where $\mathbf{P}_{\text{new}}$ has $\mathbf 1_n$ in the first column and the same elements in the other $(n-1)$ columns as those in $\mathbf{P}$, and $\mathbf{b} = (1, x_2, \ldots, x_n)^T$.</p>
+<p>Given LU decomposition $\mathbf{P}_{\text{new}}^T = \mathbf{LU}$, we first solve $\mathbf{L}\mathbf{y} = \mathbf{b}$ and then solve $\mathbf{U}\mathbf{x} = \mathbf{y}$ in order. Since $\mathbf{L}$ and $\mathbf{U}$ are of the same size as $\mathbf{P}_{\text{new}}$ and $\mathbf{L}$ and $\mathbf{U}$ require separately, we can store them in-place within the memory space of $\mathbf{P}_{\text{new}}$, which can be also stored in <code>full(A)</code>. Therefore, (1) the memory usage should be $916428^2\times 8 / 1024^4 = 6.11$ TB.</p>
+<p>Regarding (2), we need approximately
+$$
+\frac{2}{3}n^3 = \frac{2}{3}(916428)^3 = 5.13 \times 10^{17} \text{ flops}.
+$$
+My computer (Apple M1 chip) has a theoretical CPU performance of 51.2 GFLOPS. The <code>peakflops</code> function confirms this computational power.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">peakflops</span><span class="p">()</span> <span class="o">/</span> <span class="mi">10</span><span class="o">^</span><span class="mi">9</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&quot; GFLOPS&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>50.83 GFLOPS
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Therefore, assuming that LAPACK functions use only the CPU, it would take
+$$
+\frac{5.13 \times 10^{17}\text{(flops)}}{5.12\times 10^{10}\text{(flops/s)}} = 1.0 \times 10^7 \text{ seconds} \approx 116 \text{ days}
+$$
+to complete the task on my computer.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>By the way, if we consider up to $\mathcal O(n^2)$, then the coefficient should be 1 not 2, as the LU desomposition takes
+$$
+2(n-1)^2 + 2(n-2)^2 + \cdots + 2\cdot 1^2 = 2\times\frac 1 6 (n-1)n(2n-1) \approx \frac{2}{3}n^3 - n^2 \text{ flops},
+$$
+providing
+$$
+\underbrace{\frac{2}{3}n^3 - n^2}_{\text{LU decomposition}} + \underbrace{2n^2}_{\text{solve } \mathbf{LUx} = \mathbf{b}} = \frac{2}{3}n^3 + n^2 \text{ flops}.
+$$</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Q5-(75-pts)-Iterative-solvers">Q5 (75 pts) Iterative solvers<a class="anchor-link" href="#Q5-(75-pts)-Iterative-solvers">&#182;</a></h2><p>Set the <em>teleportation</em> parameter at $p = 0.85$. Consider the following methods for solving the PageRank problem.</p>
 <ol>
 <li>An iterative linear system solver such as GMRES. </li>
@@ -15607,7 +15595,7 @@ count(isone, A) = 5105039
 <span class="c"># a type for the matrix M = I - P^T in PageRank problem</span>
 <span class="k">struct</span> <span class="n">PageRankImPt</span><span class="p">{</span><span class="n">TA</span> <span class="o">&lt;:</span> <span class="kt">Number</span><span class="p">,</span> <span class="n">IA</span> <span class="o">&lt;:</span> <span class="kt">Integer</span><span class="p">,</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="kt">AbstractFloat</span><span class="p">}</span> <span class="o">&lt;:</span> <span class="kt">AbstractMatrix</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
     <span class="n">A</span>         <span class="o">::</span> <span class="kt">SparseMatrixCSC</span><span class="p">{</span><span class="n">TA</span><span class="p">,</span> <span class="n">IA</span><span class="p">}</span> <span class="c"># adjacency matrix</span>
-    <span class="n">telep</span>     <span class="o">::</span> <span class="n">T</span>
+    <span class="n">telep</span>     <span class="o">::</span> <span class="n">T</span> <span class="c"># teleportation parameter p</span>
     <span class="c"># working arrays</span>
     <span class="c"># TODO: whatever intermediate arrays you may want to pre-allocate</span>
 <span class="k">end</span>
@@ -15676,7 +15664,7 @@ for stationary distribution $\mathbf{x}$.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">CodecZlib</span><span class="p">,</span> <span class="n">DelimitedFiles</span>
 
-<span class="n">isfile</span><span class="p">(</span><span class="s">&quot;pgrksol.csv.gz&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="n">download</span><span class="p">(</span><span class="s">&quot;https://raw.githubusercontent.com/ucla-biostat-257/2024spring/master/hw/hw4/pgrksol.csv.gz&quot;</span><span class="p">)</span>
+<span class="n">isfile</span><span class="p">(</span><span class="s">&quot;pgrksol.csv.gz&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="n">download</span><span class="p">(</span><span class="s">&quot;https://github.com/ucla-biostat-257/2024spring/raw/master/hw/hw4/pgrksol.csv.gz&quot;</span><span class="p">)</span>
 <span class="n">xsol</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;pgrksol.csv.gz&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="n">io</span>
     <span class="n">vec</span><span class="p">(</span><span class="n">readdlm</span><span class="p">(</span><span class="n">GzipDecompressorStream</span><span class="p">(</span><span class="n">io</span><span class="p">)))</span>
 <span class="k">end</span>
