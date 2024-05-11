@@ -14296,8 +14296,8 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Julia Version 1.10.2
-Commit bd47eca2c8a (2024-03-01 10:14 UTC)
+<pre>Julia Version 1.10.0
+Commit 3120989f39b (2023-12-25 18:01 UTC)
 Build Info:
   Official https://julialang.org/ release
 Platform Info:
@@ -14306,9 +14306,7 @@ Platform Info:
   WORD_SIZE: 64
   LIBM: libopenlibm
   LLVM: libLLVM-15.0.7 (ORCJIT, apple-m1)
-Threads: 1 default, 0 interactive, 1 GC (on 4 virtual cores)
-Environment:
-  JULIA_NUM_THREADS = 
+  Threads: 2 on 4 virtual cores
 </pre>
 </div>
 </div>
@@ -14354,6 +14352,38 @@ Environment:
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre><span class="ansi-green-intense-fg ansi-bold">  Activating</span> project at `~/Documents/07_UCLA/Class/257/02_Homework/hw4`
+<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> project...
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">Compat</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">TranscodingStreams</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">Compat → CompatLinearAlgebraExt</span>
+<span class="ansi-green-fg">  ✓ </span>CodecZlib
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">ChannelBuffers</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">ChainRulesCore</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrayInterface</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">ChainRulesCore → ChainRulesCoreSparseArraysExt</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">DataStructures</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">LogExpFunctions → LogExpFunctionsChainRulesCoreExt</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrays → StaticArraysChainRulesCoreExt</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrayInterface → StaticArrayInterfaceStaticArraysExt</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">SortingAlgorithms</span>
+<span class="ansi-green-fg">  ✓ </span>KrylovKit
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrayInterface → StaticArrayInterfaceOffsetArraysExt</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">CloseOpenIntervals</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">LayoutPointers</span>
+<span class="ansi-green-fg">  ✓ </span>StatsBase
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">HDF5</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">MAT</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">VectorizationBase</span>
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">SLEEFPirates</span>
+<span class="ansi-green-fg">  ✓ </span>LoopVectorization
+<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">DataFrames</span>
+<span class="ansi-green-fg">  ✓ </span>MatrixDepot
+<span class="ansi-green-fg">  ✓ </span>UnicodePlots
+  26 dependencies successfully precompiled in 93 seconds. 85 already precompiled.
+  <span class="ansi-yellow-fg">1</span> dependency had output during precompilation:<span class="ansi-yellow-fg">
+┌ </span>KrylovKit<span class="ansi-yellow-fg">
+│  </span>WARNING: using ChainRulesCore.add!! in module KrylovKit conflicts with an existing identifier.<span class="ansi-yellow-fg">
+└  </span>
 </pre>
 </div>
 </div>
@@ -14469,8 +14499,8 @@ $$
 $$
 where</p>
 <ul>
-<li>$\mathbf{D} = \text{diag}(d_i)\in\mathbb R^{n\times n}$ with $d_i = p/r_i$ if $r_i &gt; 0$ and $d_i = 0$ if $r_i = 0$,</li>
-<li>$\mathbf b = (b_i)\in\mathbb R^n$ with $b_i = (1-p)/n$ if $r_i &gt; 0$ and $b_i = 1/n$ if $r_i = 0$.</li>
+<li>$\mathbf{D} = \text{diag}(d_i)\in\mathbb R^{n\times n}$ with $d_i = p/r_i$ if $r_i &gt; 0$ and $d_i = 0$ if $r_i = 0$. $\mathbf{D}$ will be <code>rinv</code> in coding.</li>
+<li>$\mathbf{z} = (z_i)\in\mathbb R^n$ with $z_i = (1-p)/n$ if $r_i &gt; 0$ and $z_i = 1/n$ if $r_i = 0$.</li>
 </ul>
 <p>Note that $\mathbf{DA}$ is sparse and $\mathbf{z}\mathbf 1_n^T$ (outer product matrix) is of rank 1.</p>
 
@@ -14518,18 +14548,12 @@ where</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>┌ Info: verify download of index files...
-└ @ MatrixDepot /Users/tomokiokuno/.julia/packages/MatrixDepot/5VE9J/src/MatrixDepot.jl:117
-┌ Info: reading database
-└ @ MatrixDepot /Users/tomokiokuno/.julia/packages/MatrixDepot/5VE9J/src/download.jl:24
-┌ Info: adding metadata...
-└ @ MatrixDepot /Users/tomokiokuno/.julia/packages/MatrixDepot/5VE9J/src/download.jl:68
-┌ Info: adding svd data...
-└ @ MatrixDepot /Users/tomokiokuno/.julia/packages/MatrixDepot/5VE9J/src/download.jl:70
-┌ Info: writing database
-└ @ MatrixDepot /Users/tomokiokuno/.julia/packages/MatrixDepot/5VE9J/src/download.jl:75
-┌ Info: used remote sites are sparse.tamu.edu with MAT index and math.nist.gov with HTML index
-└ @ MatrixDepot /Users/tomokiokuno/.julia/packages/MatrixDepot/5VE9J/src/MatrixDepot.jl:119
+<pre><span class="ansi-cyan-intense-fg ansi-bold">[ </span><span class="ansi-cyan-intense-fg ansi-bold">Info: </span>verify download of index files...
+<span class="ansi-cyan-intense-fg ansi-bold">[ </span><span class="ansi-cyan-intense-fg ansi-bold">Info: </span>reading database
+<span class="ansi-cyan-intense-fg ansi-bold">[ </span><span class="ansi-cyan-intense-fg ansi-bold">Info: </span>adding metadata...
+<span class="ansi-cyan-intense-fg ansi-bold">[ </span><span class="ansi-cyan-intense-fg ansi-bold">Info: </span>adding svd data...
+<span class="ansi-cyan-intense-fg ansi-bold">[ </span><span class="ansi-cyan-intense-fg ansi-bold">Info: </span>writing database
+<span class="ansi-cyan-intense-fg ansi-bold">[ </span><span class="ansi-cyan-intense-fg ansi-bold">Info: </span>used remote sites are sparse.tamu.edu with MAT index and math.nist.gov with HTML index
 </pre>
 </div>
 </div>
@@ -14537,11 +14561,11 @@ where</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/markdown">
 <h1 id="SNAP/web-Google">SNAP/web-Google<a class="anchor-link" href="#SNAP/web-Google">&#182;</a></h1><h6 id="MatrixMarket-matrix-coordinate-pattern-general">MatrixMarket matrix coordinate pattern general<a class="anchor-link" href="#MatrixMarket-matrix-coordinate-pattern-general">&#182;</a></h6><hr>
 <ul>
 <li>UF Sparse Matrix Collection, Tim Davis</li>
@@ -14630,12 +14654,12 @@ where</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>916428×916428 SparseMatrixCSC{Bool, Int64} with 5105039 stored entries:
 ⎡⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⎤
 ⎢⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⎥
@@ -14902,20 +14926,20 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 6032 samples with 1 evaluation.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">697.792 μs</span> … <span class="ansi-magenta-fg">  3.600 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">807.250 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">824.243 μs</span> ± <span class="ansi-green-fg">139.211 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>BenchmarkTools.Trial: 7102 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">615.958 μs</span> … <span class="ansi-magenta-fg"> 34.659 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">634.125 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">700.081 μs</span> ± <span class="ansi-green-fg">435.653 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
 
-  ▇▂        █<span class="ansi-blue-fg">█</span>▃<span class="ansi-green-fg">▂</span>          ▅▂                  ▁▂                ▁
-  ███▅▅▅▆▅▅▆█<span class="ansi-blue-fg">█</span>█<span class="ansi-green-fg">█</span>█▇▇▇▆▆▄▅▄▄███▆▇▆▆▄▅▅▄▅▄▅▄▄▃▂▄▄██▇▅▇▆▅▆▅▄▅▄▅▅▄▄▃ █
-  698 μs<span class="ansi-black-intense-fg">        </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>        1.3 ms <span class="ansi-bold">&lt;</span>
+  █▄▁<span class="ansi-blue-fg"> </span>       ▄<span class="ansi-green-fg">▆</span>▁             ▅▂                 ▂               ▁
+  ███<span class="ansi-blue-fg">█</span>▇▆▇▆▅▆▅█<span class="ansi-green-fg">█</span>██▇▇▆▆▆▅▆▅▆▅▅▆███▇▇▇▆▅▅▄▄▅▅▄▅▅▄▅▃██▆▅▂▆▄▅▄▃▂▃▄▄▃ █
+  616 μs<span class="ansi-black-intense-fg">        </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>       1.04 ms <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
@@ -14961,20 +14985,20 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>BenchmarkTools.Trial: 10000 samples with 992 evaluations.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">31.334 ns</span> … <span class="ansi-magenta-fg"> 2.984 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 96.94%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">43.136 ns              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">48.482 ns</span> ± <span class="ansi-green-fg">40.610 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>1.01% ±  1.37%
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">22.933 ns</span> … <span class="ansi-magenta-fg"> 2.318 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 97.81%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">23.732 ns              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">24.910 ns</span> ± <span class="ansi-green-fg">32.225 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>1.79% ±  1.38%
 
-  █   ▁▅   <span class="ansi-blue-fg"> </span>   <span class="ansi-green-fg"> </span>                                               
-  █▅▆▃██▃▂▇<span class="ansi-blue-fg">▄</span>▃▂▁<span class="ansi-green-fg">▁</span>▁▄▅██▆▆▄▃▂▂▁▁▁▁▁▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
-  31.3 ns<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>         110 ns <span class="ansi-bold">&lt;</span>
+  ▃▅▇█<span class="ansi-blue-fg">▆</span>▂  ▅▇▆<span class="ansi-green-fg">▅</span>▄▂▁    ▁                                        ▂
+  ████<span class="ansi-blue-fg">█</span>█▇▇███<span class="ansi-green-fg">█</span>█████████▆▅▄▅▄▄▅▃▁▄▃▃▁▃▁▃▁▁▁▁▃▁▁▁▃▃▁▁▁▁▄▄▃▁▁▄▁▄ █
+  22.9 ns<span class="ansi-black-intense-fg">      </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>      33.9 ns <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">16 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">1</span>.</pre>
 </div>
@@ -15056,12 +15080,12 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>                              <span class="ansi-white-intense-fg ansi-bold">In-degree distribution</span>           
                     <span class="ansi-black-intense-fg">┌                                        ┐</span> 
    [   0.0,  500.0) <span class="ansi-black-intense-fg">┤</span><span class="ansi-green-fg">███████████████████████████████</span><span class="ansi-green-fg"> </span> 916 114<span class="ansi-black-intense-fg"> </span> 
@@ -15115,12 +15139,12 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>                        <span class="ansi-white-intense-fg ansi-bold">In-degree distribution (≤ 500)</span>       
                   <span class="ansi-black-intense-fg">┌                                        ┐</span> 
    [  0.0,  50.0) <span class="ansi-black-intense-fg">┤</span><span class="ansi-green-fg">███████████████████████████████</span><span class="ansi-green-fg"> </span> 904 305<span class="ansi-black-intense-fg"> </span> 
@@ -15173,12 +15197,12 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>20×2 Matrix{Int64}:
  537040  6326
  597622  5354
@@ -15217,7 +15241,7 @@ count(isone, A) = 5105039
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Histogram of in-degrees. $r_i = \sum_j a_{ij}$ is the <em>out</em>-degree of page $j$.</p>
+<p>Histogram of out-degrees. $r_i = \sum_j a_{ij}$ is the <em>out</em>-degree of page $j$.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15243,12 +15267,12 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>                            <span class="ansi-white-intense-fg ansi-bold">Out-degree distribution</span>          
                   <span class="ansi-black-intense-fg">┌                                        ┐</span> 
    [  0.0,  20.0) <span class="ansi-black-intense-fg">┤</span><span class="ansi-green-fg">███████████████████████████████</span><span class="ansi-green-fg"> </span> 891 798<span class="ansi-black-intense-fg"> </span> 
@@ -15312,12 +15336,12 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>                      <span class="ansi-white-intense-fg ansi-bold">Out-degree distribution (≤ 500)</span>      
                 <span class="ansi-black-intense-fg">┌                                        ┐</span> 
    [ 0.0,  1.0) <span class="ansi-black-intense-fg">┤</span><span class="ansi-green-fg">███████████████████████████████</span><span class="ansi-green-fg"> </span> 176 974<span class="ansi-black-intense-fg"> </span> 
@@ -15381,12 +15405,12 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>20×2 Matrix{Int64}:
  506743  456
  203749  372
@@ -15444,31 +15468,37 @@ count(isone, A) = 5105039
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>          <span class="ansi-black-intense-fg">┌──────────────────────────────┐</span>    
-        <span class="ansi-black-intense-fg">1</span> <span class="ansi-black-intense-fg">│</span>⠀⠀⠀<span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡬</span><span class="ansi-red-fg">⢅</span><span class="ansi-red-fg">⠂</span>⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢐</span><span class="ansi-red-fg">⡂</span>⠀<span class="ansi-red-fg">⠡</span>⠀<span class="ansi-red-fg">⢈</span>⠀<span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢈</span><span class="ansi-red-fg">⡀</span><span class="ansi-black-intense-fg">│</span> <span class="ansi-red-fg">&gt; 0</span>
-          <span class="ansi-black-intense-fg">│</span>⠀<span class="ansi-red-fg">⢄</span>⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠱</span><span class="ansi-red-fg">⡈</span><span class="ansi-red-fg">⢨</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠘</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠸</span><span class="ansi-red-fg">⠄</span>⠀⠀<span class="ansi-red-fg">⠨</span>⠀⠀<span class="ansi-red-fg">⢊</span>⠀<span class="ansi-red-fg">⡡</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⢐</span><span class="ansi-red-fg">⢁</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢠</span>⠀<span class="ansi-black-intense-fg">│</span> <span class="ansi-blue-fg">&lt; 0</span>
-          <span class="ansi-black-intense-fg">│</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⡆</span>⠀<span class="ansi-red-fg">⠊</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢉</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠢</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⢠</span>⠀<span class="ansi-red-fg">⠒</span><span class="ansi-red-fg">⢠</span>⠀<span class="ansi-red-fg">⠖</span>⠀<span class="ansi-red-fg">⢁</span><span class="ansi-red-fg">⢀</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠆</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠤</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⣀</span>⠀<span class="ansi-red-fg">⡢</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠄</span>⠀⠀<span class="ansi-red-fg">⠊</span>⠀<span class="ansi-red-fg">⡠</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢹</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⡀</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠬</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⡌</span><span class="ansi-red-fg">⢄</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠢</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠌</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠨</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠁</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⣀</span><span class="ansi-red-fg">⡁</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⡌</span><span class="ansi-red-fg">⢊</span>⠀⠀<span class="ansi-red-fg">⡌</span><span class="ansi-red-fg">⠡</span>⠀<span class="ansi-red-fg">⢴</span>⠀<span class="ansi-red-fg">⠘</span><span class="ansi-red-fg">⣉</span>⠀<span class="ansi-red-fg">⠋</span><span class="ansi-red-fg">⠸</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⡐</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠪</span>⠀<span class="ansi-red-fg">⢌</span>⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠋</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⢠</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⢐</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠄</span>⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠘</span><span class="ansi-red-fg">⢉</span><span class="ansi-red-fg">⡠</span><span class="ansi-red-fg">⢥</span><span class="ansi-red-fg">⠰</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠘</span>⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⡀</span>⠀⠀⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠔</span><span class="ansi-red-fg">⠠</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⡜</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠨</span><span class="ansi-red-fg">⠹</span>⠀<span class="ansi-red-fg">⠰</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢑</span>⠀<span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⢰</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠏</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠃</span><span class="ansi-red-fg">⡐</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠭</span><span class="ansi-red-fg">⢄</span>⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠒</span>⠀⠀<span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠩</span>⠀<span class="ansi-red-fg">⠔</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠔</span><span class="ansi-red-fg">⡂</span><span class="ansi-red-fg">⠊</span>⠀⠀<span class="ansi-red-fg">⡂</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢈</span><span class="ansi-red-fg">⡁</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠉</span><span class="ansi-red-fg">⡀</span>⠀⠀<span class="ansi-red-fg">⠤</span><span class="ansi-red-fg">⠃</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠨</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢠</span>⠀⠀<span class="ansi-red-fg">⢨</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠄</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⢈</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠆</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⣐</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠅</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠔</span><span class="ansi-red-fg">⠙</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⢘</span><span class="ansi-red-fg">⠢</span>⠀<span class="ansi-red-fg">⢗</span>⠀<span class="ansi-red-fg">⠜</span><span class="ansi-red-fg">⡈</span>⠀⠀<span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⣀</span><span class="ansi-red-fg">⠢</span>⠀⠀<span class="ansi-red-fg">⢂</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠰</span><span class="ansi-red-fg">⡐</span><span class="ansi-red-fg">⠊</span>⠀<span class="ansi-red-fg">⠸</span><span class="ansi-red-fg">⡰</span><span class="ansi-red-fg">⡠</span><span class="ansi-red-fg">⠁</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⢂</span><span class="ansi-red-fg">⠃</span><span class="ansi-red-fg">⠌</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⢀</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⡀</span>⠀⠀<span class="ansi-red-fg">⢀</span>⠀⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡔</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠃</span><span class="ansi-red-fg">⠉</span><span class="ansi-red-fg">⠰</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⢨</span>⠀<span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠲</span><span class="ansi-red-fg">⢐</span><span class="ansi-red-fg">⠡</span>⠀<span class="ansi-red-fg">⢊</span><span class="ansi-red-fg">⠇</span><span class="ansi-red-fg">⡐</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠠</span>⠀⠀<span class="ansi-red-fg">⢄</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⢥</span><span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠅</span><span class="ansi-red-fg">⠐</span><span class="ansi-black-intense-fg">│</span>    
-   <span class="ansi-black-intense-fg">10 000</span> <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠚</span>⠀⠀<span class="ansi-red-fg">⠲</span><span class="ansi-red-fg">⢃</span><span class="ansi-red-fg">⢒</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠘</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠘</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⣚</span>⠀<span class="ansi-red-fg">⢐</span>⠀⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⣸</span>⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⢱</span><span class="ansi-red-fg">⠁</span><span class="ansi-black-intense-fg">│</span>    
-          <span class="ansi-black-intense-fg">└──────────────────────────────┘</span>    
-          ⠀<span class="ansi-black-intense-fg">1</span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<span class="ansi-black-intense-fg">10 000</span>⠀    
-          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀600 ≠ 0⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    </pre>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>          <span class="ansi-black-intense-fg">┌──────────────────────────────────────────┐</span>    
+        <span class="ansi-black-intense-fg">1</span> <span class="ansi-black-intense-fg">│</span>⠀⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠂</span>⠀⠀⠀⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢂</span><span class="ansi-red-fg">⡂</span><span class="ansi-red-fg">⠐</span>⠀⠀⠀<span class="ansi-red-fg">⠠</span>⠀⠀⠀<span class="ansi-red-fg">⠔</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⢀</span>⠀⠀<span class="ansi-red-fg">⠉</span>⠀⠀<span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠐</span>⠀<span class="ansi-black-intense-fg">│</span> <span class="ansi-red-fg">&gt; 0</span>
+          <span class="ansi-black-intense-fg">│</span>⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⡂</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⡔</span>⠀⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠂</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠒</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⡐</span>⠀⠀<span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠉</span>⠀<span class="ansi-black-intense-fg">│</span> <span class="ansi-blue-fg">&lt; 0</span>
+          <span class="ansi-black-intense-fg">│</span>⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠠</span>⠀⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⢐</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠢</span><span class="ansi-red-fg">⠠</span>⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠋</span>⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠰</span>⠀⠀⠀⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠆</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⡠</span><span class="ansi-red-fg">⠐</span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠄</span>⠀⠀<span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢠</span>⠀<span class="ansi-red-fg">⠢</span><span class="ansi-red-fg">⠐</span>⠀⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⡁</span>⠀<span class="ansi-red-fg">⡀</span>⠀⠀<span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠁</span>⠀⠀⠀<span class="ansi-red-fg">⡄</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠁</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠂</span>⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠪</span>⠀⠀<span class="ansi-red-fg">⠂</span>⠀⠀⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡉</span>⠀⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠈</span>⠀⠀⠀⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⡠</span>⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠚</span>⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠆</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠂</span><span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀⠀⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⡄</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠒</span>⠀<span class="ansi-red-fg">⢄</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢂</span>⠀<span class="ansi-red-fg">⠂</span>⠀⠀<span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠣</span>⠀<span class="ansi-red-fg">⢀</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⡀</span>⠀⠀<span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⠂</span>⠀⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⡈</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⡦</span>⠀⠀<span class="ansi-red-fg">⠅</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠨</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠨</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⢐</span>⠀⠀<span class="ansi-red-fg">⠉</span>⠀⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠉</span><span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀⠀<span class="ansi-red-fg">⠨</span>⠀<span class="ansi-red-fg">⠋</span>⠀<span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠈</span>⠀⠀⠀<span class="ansi-red-fg">⠈</span>⠀⠀⠀⠀<span class="ansi-red-fg">⡑</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠈</span>⠀⠀⠀<span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠼</span>⠀<span class="ansi-red-fg">⠠</span>⠀⠀<span class="ansi-red-fg">⡈</span><span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⠡</span><span class="ansi-red-fg">⠄</span><span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⡁</span>⠀⠀⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢀</span>⠀⠀⠀<span class="ansi-red-fg">⡄</span>⠀⠀⠀<span class="ansi-red-fg">⠤</span>⠀⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⡂</span>⠀⠀⠀<span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⢈</span>⠀<span class="ansi-red-fg">⢔</span><span class="ansi-red-fg">⡊</span><span class="ansi-red-fg">⣨</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢀</span>⠀⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀<span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠈</span>⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠄</span>⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠤</span>⠀⠀⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠘</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢘</span>⠀⠀<span class="ansi-red-fg">⢐</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⡊</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠢</span><span class="ansi-red-fg">⢀</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡑</span>⠀<span class="ansi-red-fg">⡐</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⡂</span>⠀⠀⠀<span class="ansi-red-fg">⠰</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢠</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠐</span>⠀⠀⠀<span class="ansi-red-fg">⠉</span>⠀⠀<span class="ansi-red-fg">⡀</span>⠀⠀<span class="ansi-red-fg">⠃</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀⠀<span class="ansi-red-fg">⠅</span>⠀<span class="ansi-red-fg">⡁</span>⠀⠀⠀⠀⠀<span class="ansi-red-fg">⢁</span><span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡐</span>⠀⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠔</span><span class="ansi-red-fg">⠄</span>⠀⠀<span class="ansi-red-fg">⢀</span>⠀⠀⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢉</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠈</span>⠀⠀⠀⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠊</span><span class="ansi-red-fg">⢈</span>⠀<span class="ansi-red-fg">⠁</span>⠀⠀⠀<span class="ansi-red-fg">⠅</span>⠀<span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⡀</span>⠀⠀⠀⠀<span class="ansi-red-fg">⡀</span>⠀⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⠈</span>⠀⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⢠</span>⠀⠀⠀<span class="ansi-red-fg">⢰</span>⠀⠀⠀<span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠂</span><span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠄</span>⠀⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⡂</span>⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠌</span><span class="ansi-red-fg">⠅</span><span class="ansi-red-fg">⣀</span>⠀⠀<span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠲</span><span class="ansi-red-fg">⢂</span>⠀<span class="ansi-red-fg">⠰</span><span class="ansi-red-fg">⡄</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠬</span><span class="ansi-red-fg">⠈</span>⠀⠀⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⠄</span>⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠈</span>⠀⠀<span class="ansi-red-fg">⠙</span>⠀⠀⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠂</span>⠀⠀<span class="ansi-red-fg">⡄</span><span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠂</span>⠀⠀<span class="ansi-red-fg">⠐</span>⠀⠀<span class="ansi-red-fg">⠸</span>⠀⠀⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⠂</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠄</span>⠀⠀⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠂</span>⠀⠀⠀<span class="ansi-red-fg">⠡</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⢉</span><span class="ansi-red-fg">⠄</span>⠀⠀⠀<span class="ansi-red-fg">⡐</span><span class="ansi-red-fg">⠑</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠂</span>⠀⠀⠀<span class="ansi-red-fg">⢀</span>⠀<span class="ansi-red-fg">⢀</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠉</span><span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⠄</span><span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⠠</span><span class="ansi-red-fg">⠂</span>⠀⠀<span class="ansi-red-fg">⠄</span>⠀⠀⠀⠀<span class="ansi-red-fg">⠐</span><span class="ansi-red-fg">⡀</span>⠀⠀<span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⠐</span>⠀⠀⠀<span class="ansi-red-fg">⢰</span><span class="ansi-red-fg">⡄</span><span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⠉</span><span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⠠</span>⠀<span class="ansi-red-fg">⡀</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⡁</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⡈</span><span class="ansi-red-fg">⠆</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠁</span>⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⢀</span>⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⡁</span>⠀⠀<span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠐</span>⠀⠀⠀⠀⠀⠀⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠤</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠠</span><span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">│</span>⠀<span class="ansi-red-fg">⠅</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠐</span>⠀<span class="ansi-red-fg">⡠</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⠐</span>⠀⠀⠀⠀<span class="ansi-red-fg">⡀</span>⠀<span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⡢</span>⠀<span class="ansi-red-fg">⠘</span>⠀<span class="ansi-red-fg">⠇</span>⠀<span class="ansi-red-fg">⢂</span>⠀<span class="ansi-red-fg">⣠</span>⠀<span class="ansi-red-fg">⠂</span>⠀⠀<span class="ansi-red-fg">⠂</span>⠀<span class="ansi-red-fg">⠥</span><span class="ansi-red-fg">⠄</span><span class="ansi-red-fg">⢁</span><span class="ansi-red-fg">⡀</span><span class="ansi-red-fg">⡀</span><span class="ansi-black-intense-fg">│</span>    
+   <span class="ansi-black-intense-fg">10 000</span> <span class="ansi-black-intense-fg">│</span><span class="ansi-red-fg">⠘</span>⠀⠀⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠃</span><span class="ansi-red-fg">⡁</span><span class="ansi-red-fg">⠨</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠐</span>⠀⠀<span class="ansi-red-fg">⠈</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⠄</span>⠀<span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⠂</span><span class="ansi-red-fg">⠁</span><span class="ansi-red-fg">⢁</span><span class="ansi-red-fg">⠁</span>⠀⠀<span class="ansi-red-fg">⡁</span>⠀⠀⠀<span class="ansi-red-fg">⢀</span><span class="ansi-red-fg">⢰</span>⠀⠀<span class="ansi-red-fg">⠈</span>⠀<span class="ansi-red-fg">⠈</span>⠀⠀⠀⠀<span class="ansi-red-fg">⡂</span>⠀<span class="ansi-black-intense-fg">│</span>    
+          <span class="ansi-black-intense-fg">└──────────────────────────────────────────┘</span>    
+          ⠀<span class="ansi-black-intense-fg">1</span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<span class="ansi-black-intense-fg">10 000</span>⠀    
+          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀600 ≠ 0⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    </pre>
 </div>
 
 </div>
@@ -15506,48 +15536,13 @@ where $\mathbf{P}_{\text{new}}$ has $\mathbf 1_n$ in the first column and the sa
 $$
 \frac{2}{3}n^3 = \frac{2}{3}(916428)^3 = 5.13 \times 10^{17} \text{ flops}.
 $$
-My computer (Apple M1 chip) has a theoretical CPU performance of 51.2 GFLOPS. The <code>peakflops</code> function confirms this computational power.</p>
+My computer (Apple M1 chip) has a theoretical CPU performance of 51.2 GFLOPS.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">peakflops</span><span class="p">()</span> <span class="o">/</span> <span class="mi">10</span><span class="o">^</span><span class="mi">9</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&quot; GFLOPS&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>50.83 GFLOPS
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Therefore, assuming that LAPACK functions use only the CPU, it would take
+<p>Therefore, assuming that LAPACK functions use only the CPU resource, it would take
 $$
 \frac{5.13 \times 10^{17}\text{(flops)}}{5.12\times 10^{10}\text{(flops/s)}} = 1.0 \times 10^7 \text{ seconds} \approx 116 \text{ days}
 $$
@@ -15587,7 +15582,7 @@ $$</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">BenchmarkTools</span><span class="p">,</span> <span class="n">LinearAlgebra</span><span class="p">,</span> <span class="n">SparseArrays</span><span class="p">,</span> <span class="n">Revise</span>
@@ -15598,13 +15593,20 @@ $$</p>
     <span class="n">telep</span>     <span class="o">::</span> <span class="n">T</span> <span class="c"># teleportation parameter p</span>
     <span class="c"># working arrays</span>
     <span class="c"># TODO: whatever intermediate arrays you may want to pre-allocate</span>
+    <span class="n">store_n</span>   <span class="o">::</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
+    <span class="n">rinv</span>      <span class="o">::</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
+    <span class="n">z</span>         <span class="o">::</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
 <span class="k">end</span>
 
 <span class="c"># constructor</span>
 <span class="k">function</span> <span class="n">PageRankImPt</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="kt">SparseMatrixCSC</span><span class="p">,</span> <span class="n">telep</span><span class="o">::</span><span class="n">T</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="kt">AbstractFloat</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="c"># TODO: initialize and pre-allocate arrays</span>
-    <span class="n">PageRankImPt</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">telep</span><span class="p">)</span>
+    <span class="n">store_n</span>   <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">r</span>         <span class="o">=</span> <span class="n">vec</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">rinv</span>      <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">telep</span> <span class="o">/</span> <span class="n">x</span> <span class="o">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">r</span><span class="p">]</span> <span class="c"># D</span>
+    <span class="n">z</span>         <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">telep</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span> <span class="o">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">r</span><span class="p">]</span> <span class="c"># z</span>
+    <span class="n">PageRankImPt</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">telep</span><span class="p">,</span> <span class="n">store_n</span><span class="p">,</span> <span class="n">rinv</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="c"># matrix element access M[i, j]</span>
@@ -15619,7 +15621,10 @@ $$</p>
         <span class="n">v</span>   <span class="o">::</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
         <span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="kt">AbstractFloat</span>
     <span class="c"># TODO: implement mul!(out, M, v)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">)</span> <span class="c"># wait 10 ms as if your code takes 1ms</span>
+    <span class="n">out</span> <span class="o">.=</span> <span class="n">v</span>
+    <span class="n">M</span><span class="o">.</span><span class="n">store_n</span> <span class="o">.=</span> <span class="n">M</span><span class="o">.</span><span class="n">rinv</span> <span class="o">.*</span> <span class="n">v</span>                          <span class="c"># Dv</span>
+    <span class="n">mul!</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">Transpose</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">A</span><span class="p">),</span> <span class="n">M</span><span class="o">.</span><span class="n">store_n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c"># v - A&#39;Dv</span>
+    <span class="n">out</span> <span class="o">.-=</span> <span class="n">dot</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>                         <span class="c"># v - A&#39;Dv - z&#39;v</span>
     <span class="k">return</span> <span class="n">out</span>
 <span class="k">end</span>
 
@@ -15631,8 +15636,11 @@ $$</p>
         <span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">TA</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">,</span> <span class="n">IA</span><span class="o">&lt;:</span><span class="kt">Integer</span><span class="p">,</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="kt">AbstractFloat</span><span class="p">}</span>
     <span class="n">M</span> <span class="o">=</span> <span class="n">Mt</span><span class="o">.</span><span class="n">parent</span>
     <span class="c"># TODO: implement mul!(out, transpose(M), v)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">)</span> <span class="c"># wait 10 ms as if your code takes 1ms</span>
-    <span class="n">out</span>
+    <span class="n">out</span> <span class="o">.=</span> <span class="n">v</span>
+    <span class="n">mul!</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">store_n</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>          <span class="c"># Av</span>
+    <span class="n">out</span> <span class="o">.-=</span> <span class="n">M</span><span class="o">.</span><span class="n">rinv</span> <span class="o">.*</span> <span class="n">M</span><span class="o">.</span><span class="n">store_n</span> <span class="c"># v - DAv</span>
+    <span class="n">out</span> <span class="o">.-=</span> <span class="n">M</span><span class="o">.</span><span class="n">z</span> <span class="o">.*</span> <span class="n">sum</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>       <span class="c"># v - DAv - z(1&#39;v)</span>
+    <span class="k">return</span> <span class="n">out</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -15653,13 +15661,18 @@ $$
 \mathbf{M} \mathbf{x} = \mathbf{0}
 $$
 for stationary distribution $\mathbf{x}$.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Download the solution file <code>pgrksol.csv.gz</code>. <strong>Do not put this file in your Git</strong>. You will lose points if you do. You can add a line <code>pgrksol.csv.gz</code> to your <code>.gitignore</code> file.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">CodecZlib</span><span class="p">,</span> <span class="n">DelimitedFiles</span>
@@ -15675,22 +15688,72 @@ for stationary distribution $\mathbf{x}$.</p>
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>916428-element Vector{Float64}:
+ 3.3783428216975054e-5
+ 2.0710155392568165e-6
+ 3.663065984832893e-6
+ 7.527510785028837e-7
+ 8.63328599674051e-7
+ 1.769418252415541e-6
+ 2.431230382883396e-7
+ 6.368417180141445e-7
+ 4.744973703681939e-7
+ 2.6895486110647536e-7
+ 3.18574314847409e-6
+ 7.375106374416742e-7
+ 2.431230382883396e-7
+ ⋮
+ 1.1305006040148547e-6
+ 4.874825281822915e-6
+ 3.167946973112519e-6
+ 9.72688040308568e-7
+ 6.588614479285245e-7
+ 7.737011774300648e-7
+ 2.431230382883396e-7
+ 1.6219204214797293e-6
+ 3.912130060551738e-7
+ 2.431230382883396e-7
+ 7.296033831163157e-6
+ 6.330939996912478e-7</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>You will lose all 35 points (Steps 1 and 2)</strong> if the following statements throw AssertError.</p>
+<p><strong>Solution</strong></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">PageRankImPt</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="c">#@assert transpose(M) * ones(n) ≈ zeros(n)</span>
+<span class="c"># @assert transpose(M) * ones(n) ≈ zeros(n)</span>
 <span class="nd">@assert</span> <span class="n">norm</span><span class="p">(</span><span class="n">transpose</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="o">*</span> <span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-12</span>
 </pre></div>
 
@@ -15702,7 +15765,7 @@ for stationary distribution $\mathbf{x}$.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">#@assert M * xsol ≈ zeros(n)</span>
@@ -15720,15 +15783,13 @@ for stationary distribution $\mathbf{x}$.</p>
 <h3 id="Step-2-(20-pts)">Step 2 (20 pts)<a class="anchor-link" href="#Step-2-(20-pts)">&#182;</a></h3><p>We want to benchmark the hot functions <code>mul!</code> to make sure they are efficient and allocate no memory.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">PageRankImPt</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">v</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">v</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="n">bm_mv</span> <span class="o">=</span> <span class="nd">@benchmark</span> <span class="n">mul!</span><span class="p">(</span><span class="o">$</span><span class="n">out</span><span class="p">,</span> <span class="o">$</span><span class="n">M</span><span class="p">,</span> <span class="o">$</span><span class="n">v</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">fill!</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">fill!</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
@@ -15737,10 +15798,42 @@ for stationary distribution $\mathbf{x}$.</p>
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>BenchmarkTools.Trial: 199 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">20.590 ms</span> … <span class="ansi-magenta-fg">157.660 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">23.356 ms               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">24.849 ms</span> ± <span class="ansi-green-fg"> 10.227 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+
+  ▇▄█▇        <span class="ansi-blue-fg"> </span>     <span class="ansi-green-fg"> </span>                                           
+  █████▅▆▁▃▅▄▃<span class="ansi-blue-fg">▄</span>▃▆▆▆█<span class="ansi-green-fg">▆</span>▄▄▇▃▃▆▄▃▃▁▃▃▁▄▄▅▄▃▆▄▁▃▁▃▄▁▁▁▁▁▃▁▁▁▁▁▃▁▁▁▃ ▃
+  20.6 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>         34.7 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">bm_mtv</span> <span class="o">=</span> <span class="nd">@benchmark</span> <span class="n">mul!</span><span class="p">(</span><span class="o">$</span><span class="n">out</span><span class="p">,</span> <span class="o">$</span><span class="p">(</span><span class="n">transpose</span><span class="p">(</span><span class="n">M</span><span class="p">)),</span> <span class="o">$</span><span class="n">v</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">fill!</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">fill!</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -15751,16 +15844,48 @@ for stationary distribution $\mathbf{x}$.</p>
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>BenchmarkTools.Trial: 196 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">22.340 ms</span> … <span class="ansi-magenta-fg">77.661 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">24.633 ms              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">25.264 ms</span> ± <span class="ansi-green-fg"> 4.139 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+
+          ▁ █▃▁ <span class="ansi-blue-fg"> </span>  <span class="ansi-green-fg"> </span>  ▁▁                                       
+  ▆▄▃▄▆▃▃▃█▇███▅<span class="ansi-blue-fg">▃</span>█▃<span class="ansi-green-fg">▆</span>▆▇██▇▄▆▄▄▃▄▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▃▁▃▁▁▃▁▁▁▁▃ ▃
+  22.3 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>        32.3 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>You will lose 1 point for each 100 bytes memory allocation. So the points you will get is</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">clamp</span><span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="n">median</span><span class="p">(</span><span class="n">bm_mv</span><span class="p">)</span><span class="o">.</span><span class="n">memory</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> 
@@ -15770,6 +15895,29 @@ for stationary distribution $\mathbf{x}$.</p>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>20.0</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15784,10 +15932,10 @@ for stationary distribution $\mathbf{x}$.</p>
 <h3 id="Step-3-(20-pts)">Step 3 (20 pts)<a class="anchor-link" href="#Step-3-(20-pts)">&#182;</a></h3><p>Let's first try to solve the PageRank problem by the GMRES method for solving linear equations.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">KrylovKit</span>
@@ -15810,6 +15958,31 @@ for stationary distribution $\mathbf{x}$.</p>
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(value = ([3.378342822237397e-5, 2.0710155392781265e-6, 3.663065985290286e-6, 7.527510785714565e-7, 8.633285997289003e-7, 1.769418252763817e-6, 2.431230382949412e-7, 6.368417180841316e-7, 4.7449737038222236e-7, 2.689548611137733e-7  …  3.167946974023204e-6, 9.726880410372258e-7, 6.588614478640726e-7, 7.737011774829105e-7, 2.431230382949412e-7, 1.6219204214483914e-6, 3.912130060690359e-7, 2.431230382949412e-7, 7.296033831434169e-6, 6.330939996774086e-7], ConvergenceInfo: one converged value after 3 iterations and 72 applications of the linear map;
+norms of residuals are given by (7.821117064217091e-13,).
+), time = 8.214195959, bytes = 1511212064, gctime = 0.625582958, gcstats = Base.GC_Diff(1511212064, 206, 0, 12434, 4, 228, 625582958, 4, 1))</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15819,7 +15992,7 @@ for stationary distribution $\mathbf{x}$.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@assert</span> <span class="n">norm</span><span class="p">(</span><span class="n">x_gmres</span> <span class="o">-</span> <span class="n">xsol</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
@@ -15836,10 +16009,10 @@ for stationary distribution $\mathbf{x}$.</p>
 <p>GMRES should be reasonably fast. The points you'll get is</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">clamp</span><span class="p">(</span><span class="mi">20</span> <span class="o">/</span> <span class="n">time_gmres</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -15848,6 +16021,29 @@ for stationary distribution $\mathbf{x}$.</p>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>20.0</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15862,10 +16058,10 @@ for stationary distribution $\mathbf{x}$.</p>
 <h3 id="Step-4-(20-pts)">Step 4 (20 pts)<a class="anchor-link" href="#Step-4-(20-pts)">&#182;</a></h3><p>Let's first try to solve the PageRank problem by the Arnoldi method for solving eigen problems.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># warm up (compilation)</span>
@@ -15879,6 +16075,31 @@ for stationary distribution $\mathbf{x}$.</p>
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(value = (ComplexF64[-1.6594172665673617e-13 + 0.0im], Vector{ComplexF64}[[0.005635826953806507 + 0.0im, 0.00034549143807822166 + 0.0im, 0.00061108084941251 + 0.0im, 0.00012557561626038967 + 0.0im, 0.00014402240532806543 + 0.0im, 0.00029517830503989113 + 0.0im, 4.0558328286807854e-5 + 0.0im, 0.00010623935784854332 + 0.0im, 7.915671116200263e-5 + 0.0im, 4.4867650667280535e-5 + 0.0im  …  0.0005284839899796174 + 0.0im, 0.00016226599147987417 + 0.0im, 0.00010991273837613363 + 0.0im, 0.00012907055855754628 + 0.0im, 4.0558328286807854e-5 + 0.0im, 0.00027057238743206664 + 0.0im, 6.52630274833646e-5 + 0.0im, 4.0558328286807854e-5 + 0.0im, 0.001217140660133287 + 0.0im, 0.0001056141551070459 + 0.0im]], ConvergenceInfo: one converged value after 7 iterations and 99 applications of the linear map;
+norms of residuals are given by (9.574464573688717e-14,).
+), time = 20.644037333, bytes = 2296352192, gctime = 1.027949876, gcstats = Base.GC_Diff(2296352192, 311, 0, 16773, 12, 233, 1027949876, 5, 3))</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15888,7 +16109,7 @@ for stationary distribution $\mathbf{x}$.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@assert</span> <span class="n">abs</span><span class="p">(</span><span class="kt">Real</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&lt;</span> <span class="mf">1e-8</span>
@@ -15902,7 +16123,7 @@ for stationary distribution $\mathbf{x}$.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x_arnoldi</span>   <span class="o">=</span> <span class="n">abs</span><span class="o">.</span><span class="p">(</span><span class="kt">Real</span><span class="o">.</span><span class="p">(</span><span class="n">vecs</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
@@ -15921,10 +16142,10 @@ for stationary distribution $\mathbf{x}$.</p>
 <p>Arnoldi should be reasonably fast. The points you'll get is</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">clamp</span><span class="p">(</span><span class="mi">20</span> <span class="o">/</span> <span class="n">time_arnoldi</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -15933,6 +16154,29 @@ for stationary distribution $\mathbf{x}$.</p>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>19.37605486503312</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
