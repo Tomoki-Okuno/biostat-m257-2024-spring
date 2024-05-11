@@ -14352,38 +14352,6 @@ Platform Info:
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre><span class="ansi-green-intense-fg ansi-bold">  Activating</span> project at `~/Documents/07_UCLA/Class/257/02_Homework/hw4`
-<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> project...
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">Compat</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">TranscodingStreams</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">Compat → CompatLinearAlgebraExt</span>
-<span class="ansi-green-fg">  ✓ </span>CodecZlib
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">ChannelBuffers</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">ChainRulesCore</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrayInterface</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">ChainRulesCore → ChainRulesCoreSparseArraysExt</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">DataStructures</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">LogExpFunctions → LogExpFunctionsChainRulesCoreExt</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrays → StaticArraysChainRulesCoreExt</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrayInterface → StaticArrayInterfaceStaticArraysExt</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">SortingAlgorithms</span>
-<span class="ansi-green-fg">  ✓ </span>KrylovKit
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">StaticArrayInterface → StaticArrayInterfaceOffsetArraysExt</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">CloseOpenIntervals</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">LayoutPointers</span>
-<span class="ansi-green-fg">  ✓ </span>StatsBase
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">HDF5</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">MAT</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">VectorizationBase</span>
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">SLEEFPirates</span>
-<span class="ansi-green-fg">  ✓ </span>LoopVectorization
-<span class="ansi-green-fg">  ✓ </span><span class="ansi-black-intense-fg">DataFrames</span>
-<span class="ansi-green-fg">  ✓ </span>MatrixDepot
-<span class="ansi-green-fg">  ✓ </span>UnicodePlots
-  26 dependencies successfully precompiled in 93 seconds. 85 already precompiled.
-  <span class="ansi-yellow-fg">1</span> dependency had output during precompilation:<span class="ansi-yellow-fg">
-┌ </span>KrylovKit<span class="ansi-yellow-fg">
-│  </span>WARNING: using ChainRulesCore.add!! in module KrylovKit conflicts with an existing identifier.<span class="ansi-yellow-fg">
-└  </span>
 </pre>
 </div>
 </div>
@@ -14932,14 +14900,14 @@ count(isone, A) = 5105039
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 7102 samples with 1 evaluation.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">615.958 μs</span> … <span class="ansi-magenta-fg"> 34.659 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">634.125 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">700.081 μs</span> ± <span class="ansi-green-fg">435.653 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+<pre>BenchmarkTools.Trial: 7954 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">615.667 μs</span> … <span class="ansi-magenta-fg">  9.282 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">616.583 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">626.212 μs</span> ± <span class="ansi-green-fg">156.355 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
 
-  █▄▁<span class="ansi-blue-fg"> </span>       ▄<span class="ansi-green-fg">▆</span>▁             ▅▂                 ▂               ▁
-  ███<span class="ansi-blue-fg">█</span>▇▆▇▆▅▆▅█<span class="ansi-green-fg">█</span>██▇▇▆▆▆▅▆▅▆▅▅▆███▇▇▇▆▅▅▄▄▅▅▄▅▅▄▅▃██▆▅▂▆▄▅▄▃▂▃▄▄▃ █
-  616 μs<span class="ansi-black-intense-fg">        </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>       1.04 ms <span class="ansi-bold">&lt;</span>
+  █<span class="ansi-blue-fg">▆</span>▅▄▃▂▁▁<span class="ansi-green-fg"> </span>                                                     ▁
+  █<span class="ansi-blue-fg">█</span>██████<span class="ansi-green-fg">█</span>███▇▆▅▆▅▅▆▅▅▁▅▄▄▅▄▄▃▃▃▃▁▄▃▄▃▃▄▁▁▄▁▁▃▁▁▁▃▁▁▁▁▄▃▁▁▁▃▅█ █
+  616 μs<span class="ansi-black-intense-fg">        </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>        698 μs <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
@@ -14992,13 +14960,13 @@ count(isone, A) = 5105039
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>BenchmarkTools.Trial: 10000 samples with 992 evaluations.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">22.933 ns</span> … <span class="ansi-magenta-fg"> 2.318 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 97.81%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">23.732 ns              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">24.910 ns</span> ± <span class="ansi-green-fg">32.225 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>1.79% ±  1.38%
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">32.930 ns</span> … <span class="ansi-magenta-fg"> 3.706 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 98.39%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">38.138 ns              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">37.736 ns</span> ± <span class="ansi-green-fg">42.071 ns</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>1.50% ±  1.38%
 
-  ▃▅▇█<span class="ansi-blue-fg">▆</span>▂  ▅▇▆<span class="ansi-green-fg">▅</span>▄▂▁    ▁                                        ▂
-  ████<span class="ansi-blue-fg">█</span>█▇▇███<span class="ansi-green-fg">█</span>█████████▆▅▄▅▄▄▅▃▁▄▃▃▁▃▁▃▁▁▁▁▃▁▁▁▃▃▁▁▁▁▄▄▃▁▁▄▁▄ █
-  22.9 ns<span class="ansi-black-intense-fg">      </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>      33.9 ns <span class="ansi-bold">&lt;</span>
+   ▆▃    ▆█▁                 <span class="ansi-green-fg"> </span>  <span class="ansi-blue-fg"> </span>      ▁  ▄▅▂                  
+  ▇██▄▄▃▄███▅▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁<span class="ansi-green-fg">▁</span>▁▆<span class="ansi-blue-fg">▆</span>▄▂▂▂▂▅█▅▇███▆▄▃▂▂▂▂▁▁▁▁▂▁▂▂▁ ▃
+  32.9 ns<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>        43.3 ns <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">16 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">1</span>.</pre>
 </div>
@@ -15577,6 +15545,18 @@ $$</p>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Step-1-(15-pts)">Step 1 (15 pts)<a class="anchor-link" href="#Step-1-(15-pts)">&#182;</a></h3><p>Let's implement a type <code>PageRankImPt</code> that mimics the matrix $\mathbf{M} = \mathbf{I} - \mathbf{P}^T$. For iterative methods, all we need to provide are methods for evaluating $\mathbf{M} \mathbf{v}$ and $\mathbf{M}^T \mathbf{v}$ for arbitrary vector $\mathbf{v}$.</p>
+<p><strong>Solution</strong></p>
+<p>For efficient computation, I expand $\mathbf{M} \mathbf{v}$ and $\mathbf{M}^T \mathbf{v}$ as follows:
+$$
+\begin{align*}
+\mathbf{M} \mathbf{v}
+&amp;= (\mathbf{I} - \mathbf{A}^T\mathbf{D} - \mathbf{1}\mathbf{z}^T)\mathbf{v}
+= \mathbf{v} - \mathbf{A}^T (\mathbf{D}\mathbf{v}) - \mathbf{1}(\mathbf{z}^T \mathbf{v})\\
+\mathbf{M}^T \mathbf{v}
+&amp;= (\mathbf{I} - \mathbf{D}\mathbf{A} - \mathbf{z} \mathbf{1}^T)\mathbf{v}
+= \mathbf{v} - \mathbf{D} (\mathbf{A}\mathbf{v}) - \mathbf{z} (\mathbf{1}_n^T\mathbf{v}).
+\end{align*}
+$$</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15604,8 +15584,14 @@ $$</p>
     <span class="c"># TODO: initialize and pre-allocate arrays</span>
     <span class="n">store_n</span>   <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">r</span>         <span class="o">=</span> <span class="n">vec</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="mi">2</span><span class="p">))</span>
-    <span class="n">rinv</span>      <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">telep</span> <span class="o">/</span> <span class="n">x</span> <span class="o">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">r</span><span class="p">]</span> <span class="c"># D</span>
-    <span class="n">z</span>         <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">telep</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span> <span class="o">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">r</span><span class="p">]</span> <span class="c"># z</span>
+    <span class="c"># rinv      = [x &gt; 0 ? telep / x : 0.0 for x in r] # D</span>
+    <span class="c"># z         = [x &gt; 0 ? (1 - telep) / n : 1 / n for x in r] # z</span>
+    <span class="n">rinv</span>      <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c"># D</span>
+    <span class="n">z</span>         <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c"># z</span>
+    <span class="nd">@inbounds</span> <span class="nd">@simd</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+        <span class="n">rinv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">telep</span> <span class="o">/</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n</span> <span class="o">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">telep</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">end</span>
     <span class="n">PageRankImPt</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">telep</span><span class="p">,</span> <span class="n">store_n</span><span class="p">,</span> <span class="n">rinv</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="k">end</span>
 
@@ -15812,14 +15798,14 @@ for stationary distribution $\mathbf{x}$.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 199 samples with 1 evaluation.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">20.590 ms</span> … <span class="ansi-magenta-fg">157.660 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">23.356 ms               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">24.849 ms</span> ± <span class="ansi-green-fg"> 10.227 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+<pre>BenchmarkTools.Trial: 257 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">17.963 ms</span> … <span class="ansi-magenta-fg">59.891 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">18.136 ms              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">19.190 ms</span> ± <span class="ansi-green-fg"> 3.531 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
 
-  ▇▄█▇        <span class="ansi-blue-fg"> </span>     <span class="ansi-green-fg"> </span>                                           
-  █████▅▆▁▃▅▄▃<span class="ansi-blue-fg">▄</span>▃▆▆▆█<span class="ansi-green-fg">▆</span>▄▄▇▃▃▆▄▃▃▁▃▃▁▄▄▅▄▃▆▄▁▃▁▃▄▁▁▁▁▁▃▁▁▁▁▁▃▁▁▁▃ ▃
-  20.6 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>         34.7 ms <span class="ansi-bold">&lt;</span>
+  █<span class="ansi-blue-fg">▃</span>▃  <span class="ansi-green-fg"> </span>   ▁                                                   
+  █<span class="ansi-blue-fg">█</span>█▇█<span class="ansi-green-fg">▄</span>▇▅▇█▆▇▄▄▄▁▁▁▁▁▁▄▅▄▁▁▁▁▁▁▁▁▁▁▁▁▅▁▄▄▁▁▁▁▁▁▄▁▁▄▁▁▁▁▁▁▁▁▄ ▅
+  18 ms<span class="ansi-black-intense-fg">        </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>      33.4 ms <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
@@ -15858,14 +15844,14 @@ for stationary distribution $\mathbf{x}$.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 196 samples with 1 evaluation.
- Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">22.340 ms</span> … <span class="ansi-magenta-fg">77.661 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">24.633 ms              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
- Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">25.264 ms</span> ± <span class="ansi-green-fg"> 4.139 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+<pre>BenchmarkTools.Trial: 245 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">19.449 ms</span> … <span class="ansi-magenta-fg">29.560 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">19.557 ms              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">20.179 ms</span> ± <span class="ansi-green-fg"> 1.689 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
 
-          ▁ █▃▁ <span class="ansi-blue-fg"> </span>  <span class="ansi-green-fg"> </span>  ▁▁                                       
-  ▆▄▃▄▆▃▃▃█▇███▅<span class="ansi-blue-fg">▃</span>█▃<span class="ansi-green-fg">▆</span>▆▇██▇▄▆▄▄▃▄▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▃▁▃▁▁▃▁▁▁▁▃ ▃
-  22.3 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>        32.3 ms <span class="ansi-bold">&lt;</span>
+  █<span class="ansi-blue-fg">▃</span>  <span class="ansi-green-fg"> </span>          ▁                                             
+  █<span class="ansi-blue-fg">█</span>█▄<span class="ansi-green-fg">▄</span>▅▅▆▇▇▄▄▁▄▆█▅▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▄▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▁▁▁▁▄▄ ▅
+  19.4 ms<span class="ansi-black-intense-fg">      </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>      29.4 ms <span class="ansi-bold">&lt;</span>
 
  Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
@@ -15974,7 +15960,7 @@ for stationary distribution $\mathbf{x}$.</p>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>(value = ([3.378342822237397e-5, 2.0710155392781265e-6, 3.663065985290286e-6, 7.527510785714565e-7, 8.633285997289003e-7, 1.769418252763817e-6, 2.431230382949412e-7, 6.368417180841316e-7, 4.7449737038222236e-7, 2.689548611137733e-7  …  3.167946974023204e-6, 9.726880410372258e-7, 6.588614478640726e-7, 7.737011774829105e-7, 2.431230382949412e-7, 1.6219204214483914e-6, 3.912130060690359e-7, 2.431230382949412e-7, 7.296033831434169e-6, 6.330939996774086e-7], ConvergenceInfo: one converged value after 3 iterations and 72 applications of the linear map;
 norms of residuals are given by (7.821117064217091e-13,).
-), time = 8.214195959, bytes = 1511212064, gctime = 0.625582958, gcstats = Base.GC_Diff(1511212064, 206, 0, 12434, 4, 228, 625582958, 4, 1))</pre>
+), time = 5.373405583, bytes = 1511212064, gctime = 0.354590542, gcstats = Base.GC_Diff(1511212064, 206, 0, 12434, 4, 228, 354590542, 4, 1))</pre>
 </div>
 
 </div>
@@ -16091,7 +16077,7 @@ norms of residuals are given by (7.821117064217091e-13,).
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>(value = (ComplexF64[-1.6594172665673617e-13 + 0.0im], Vector{ComplexF64}[[0.005635826953806507 + 0.0im, 0.00034549143807822166 + 0.0im, 0.00061108084941251 + 0.0im, 0.00012557561626038967 + 0.0im, 0.00014402240532806543 + 0.0im, 0.00029517830503989113 + 0.0im, 4.0558328286807854e-5 + 0.0im, 0.00010623935784854332 + 0.0im, 7.915671116200263e-5 + 0.0im, 4.4867650667280535e-5 + 0.0im  …  0.0005284839899796174 + 0.0im, 0.00016226599147987417 + 0.0im, 0.00010991273837613363 + 0.0im, 0.00012907055855754628 + 0.0im, 4.0558328286807854e-5 + 0.0im, 0.00027057238743206664 + 0.0im, 6.52630274833646e-5 + 0.0im, 4.0558328286807854e-5 + 0.0im, 0.001217140660133287 + 0.0im, 0.0001056141551070459 + 0.0im]], ConvergenceInfo: one converged value after 7 iterations and 99 applications of the linear map;
 norms of residuals are given by (9.574464573688717e-14,).
-), time = 20.644037333, bytes = 2296352192, gctime = 1.027949876, gcstats = Base.GC_Diff(2296352192, 311, 0, 16773, 12, 233, 1027949876, 5, 3))</pre>
+), time = 10.233869333, bytes = 2296352192, gctime = 0.409751959, gcstats = Base.GC_Diff(2296352192, 311, 0, 16773, 12, 233, 409751959, 5, 3))</pre>
 </div>
 
 </div>
@@ -16170,7 +16156,7 @@ norms of residuals are given by (9.574464573688717e-14,).
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>19.37605486503312</pre>
+<pre>20.0</pre>
 </div>
 
 </div>
