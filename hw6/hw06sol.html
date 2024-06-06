@@ -7752,28 +7752,25 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The gradient w.r.t $\mathbf{L}$. Consider $\boldsymbol{\Sigma}$ first. By the general chain rule and the vectorization formula,
+<p>The gradient w.r.t $\mathbf{L}$. Consider $\boldsymbol{\Sigma}$ first. By the general chain rule and the vectorization formula,</p>
 $$
 \begin{aligned}
 \text{vec}\frac{\partial}{\partial\boldsymbol{\Sigma}}
-\left(\log \det \boldsymbol{\Omega}<em>i + \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)
-&amp;= \left(D</em>{\boldsymbol{\Omega}<em>i}\left(\log \det \boldsymbol{\Omega}_i + \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)D</em>{\boldsymbol{\Sigma}}\boldsymbol{\Omega}_i\right)^T\
+\left(\log \det \boldsymbol{\Omega}_i + \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)
+&amp;= \left(D_{\boldsymbol{\Omega}_i}\left(\log \det \boldsymbol{\Omega}_i + \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)D_{\boldsymbol{\Sigma}}\boldsymbol{\Omega}_i\right)^T\\
 &amp;= 
-\left{\left[\text{vec}\frac{\partial}{\partial\boldsymbol{\Omega}}\left(\log \det \boldsymbol{\Omega}_i</p>
-<ul>
-<li>\mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)\right]^T</li>
-</ul>
-<p>\cdot D_{\boldsymbol{\Sigma}}\mathbf{Z}<em>i\boldsymbol{\Sigma}\mathbf{Z}_i^T\right}^T
-\
+\left\{\left[\text{vec}\frac{\partial}{\partial\boldsymbol{\Omega}}\left(\log \det \boldsymbol{\Omega}_i
++ \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)\right]^T
+\cdot D_{\boldsymbol{\Sigma}}\mathbf{Z}_i\boldsymbol{\Sigma}\mathbf{Z}_i^T\right\}^T
+\\
 &amp;= 
-\left{\left[\text{vec}(\boldsymbol{\Omega}_i^{-1} - \boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1})\right]^T
-\cdot(\mathbf{Z}_i\otimes\mathbf{Z}_i)\right}^T\
+\left\{\left[\text{vec}(\boldsymbol{\Omega}_i^{-1} - \boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1})\right]^T
+\cdot(\mathbf{Z}_i\otimes\mathbf{Z}_i)\right\}^T\\
 &amp;= (\mathbf{Z}_i^T\otimes \mathbf{Z}_i^T)
-\text{vec}(\boldsymbol{\Omega}_i^{-1} - \boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1})\
+\text{vec}(\boldsymbol{\Omega}_i^{-1} - \boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1})\\
 &amp;= \text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i),
 \end{aligned}
-$$
-and therefore
+$$<p>and therefore
 $$
 \begin{aligned}
 \frac{\partial}{\partial\boldsymbol{\Sigma}}
@@ -7790,30 +7787,24 @@ $$
 &amp;= 2\frac{\partial}{\partial\boldsymbol{\Sigma}}\ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\mathbf{L}\\
 &amp;= - \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i \mathbf{L} + \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i \mathbf{L}.
 \end{aligned}
-$$
-*Proof*:
+$$</p>
+<p><em>Proof</em></p>
 $$
 \begin{aligned}
-D</em>{\mathbf{L}}\ell_i &amp;= D_{\boldsymbol{\Sigma}}\ell_iD_{\mathbf{L}}\boldsymbol{\Sigma}\
-&amp;= \left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right)^T(\mathbf{I}<em>{q^2} + \mathbf{K}</em>{qq})(\mathbf{L}\otimes\mathbf{I}_q)\
-&amp;= \left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right)^T(\mathbf{L}\otimes\mathbf{I}_q)</p>
-<ul>
-<li>\left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right)^T\mathbf{K}_{qq}(\mathbf{L}\otimes\mathbf{I}_q)\</li>
-</ul>
-<p>&amp;= \left[(\mathbf{L}^T\otimes\mathbf{I}_q)\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T</p>
-<ul>
-<li>\left[(\mathbf{L}^T\otimes\mathbf{I}<em>q)\mathbf{K}</em>{qq}\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T</li>
-</ul>
-<p>\quad\because \mathbf{K}<em>{qq}^T = \mathbf{K}</em>{qq}\
-&amp;= \left[(\mathbf{L}^T\otimes\mathbf{I}_q)\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T</p>
-<ul>
-<li>\left[(\mathbf{L}^T\otimes\mathbf{I}_q)\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T</li>
-</ul>
-<p>\quad\because \mathbf{K}<em>{qq}\text{vec}(\mathbf{A}) = \text{vec}(\mathbf{A}^T) \ \text{but} \ \boldsymbol{\Sigma}^T = \boldsymbol{\Sigma}\ \
-&amp;= 2\left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\mathbf{L}\right)^T\
-&amp;= 2D</em>{\boldsymbol{\Sigma}}(\ell_i\mathbf{L}).
+D_{\mathbf{L}}\ell_i &amp;= D_{\boldsymbol{\Sigma}}\ell_iD_{\mathbf{L}}\boldsymbol{\Sigma}\\
+&amp;= \left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right)^T(\mathbf{I}_{q^2} + \mathbf{K}_{qq})(\mathbf{L}\otimes\mathbf{I}_q)\\
+&amp;= \left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right)^T(\mathbf{L}\otimes\mathbf{I}_q)
++ \left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right)^T\mathbf{K}_{qq}(\mathbf{L}\otimes\mathbf{I}_q)\\
+&amp;= \left[(\mathbf{L}^T\otimes\mathbf{I}_q)\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T
++ \left[(\mathbf{L}^T\otimes\mathbf{I}_q)\mathbf{K}_{qq}\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T
+\quad\because \mathbf{K}_{qq}^T = \mathbf{K}_{qq}\\
+&amp;= \left[(\mathbf{L}^T\otimes\mathbf{I}_q)\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T
++ \left[(\mathbf{L}^T\otimes\mathbf{I}_q)\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\right]^T
+\quad\because \mathbf{K}_{qq}\text{vec}(\mathbf{A}) = \text{vec}(\mathbf{A}^T) \ \text{but} \ \boldsymbol{\Sigma}^T = \boldsymbol{\Sigma}\ \\
+&amp;= 2\left(\text{vec}\frac{\partial\ell_i}{\partial\boldsymbol{\Sigma}}\mathbf{L}\right)^T\\
+&amp;= 2D_{\boldsymbol{\Sigma}}(\ell_i\mathbf{L}).
 \end{aligned}
-$$</p>
+$$
 </div>
 </div>
 </div>
@@ -7825,7 +7816,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ol start="2">
-<li>The Hessian is crazy! The following three blocks (Jacobian) are straightforward:</li>
+<li>The Hessian is crazy! The following three blocks (Jacobian) are straightforward.</li>
 </ol>
 $$
 \begin{aligned}
@@ -7843,7 +7834,7 @@ $$
 &amp;= \frac{1}{2} \operatorname{tr}(\boldsymbol{\Omega}_i^{-2})
 -\mathbf{r}_i^T \boldsymbol{\Omega}_i^{-3}\mathbf{r}_i\in\mathbb{R}
 \end{aligned}
-$$<p>The remaining blocks are challenging to me. Note $\mathbf{K}_{qq}(\mathbf{L}\otimes\mathbf{I}_q) = (\mathbf{I}_q\otimes\mathbf{L})\mathbf{K}_{qq}$ (very important!).
+$$<p>The remaining blocks are challenging to me. Note $\mathbf{K}_{qq}(\mathbf{L}\otimes\mathbf{I}_q) = (\mathbf{I}_q\otimes\mathbf{L})\mathbf{K}_{qq}$ (very important!).</p>
 $$
 \begin{aligned}
 \nabla^2_{\boldsymbol{\beta}, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)
@@ -7872,24 +7863,19 @@ D_{\boldsymbol{\Sigma}}\boldsymbol{\Omega}_i D_{\mathbf{L}}\boldsymbol{\Sigma}\\
  &amp;= \left(\text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})\right)^T
  \in\mathbb{R}^{1\times q^2}.
 \end{aligned}
-$$
-The above second equation can be easily verified by considering the transpose block:
+$$<p>The above second equation can be easily verified by considering the transpose block:</p>
 $$
 \begin{aligned}
 \nabla^2_{\text{vec}\mathbf{L}, \sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)
-&amp;= \text{vec} \left(- \mathbf{Z}<em>i^T (\nabla</em>{\sigma^2}\boldsymbol{\Omega}_i^{-1})\mathbf{Z}_i \mathbf{L}</p>
-<ul>
-<li>\left[\mathbf{Z}<em>i^T (\nabla</em>{\sigma^2}\boldsymbol{\Omega}<em>i^{-1})\mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i \mathbf{L} + \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i \mathbf{r}_i^T (\nabla</em>{\sigma^2}\boldsymbol{\Omega}_i^{-1}) \mathbf{Z}_i \mathbf{L}\right]\right)\</li>
-</ul>
-<p>&amp;= \text{vec}\left(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i \mathbf{L}\right)</p>
-<ul>
-<li>\text{vec}\left(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i \mathbf{L} + \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i \mathbf{L}\right)\</li>
-</ul>
-<p>&amp;= \text{vec}(\mathbf{Z}<em>i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})
-\in\mathbb{R}^{q^2\times 1}\
-&amp;= \left(\nabla^2</em>{\sigma^2, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right)^T.
+&amp;= \text{vec} \left(- \mathbf{Z}_i^T (\nabla_{\sigma^2}\boldsymbol{\Omega}_i^{-1})\mathbf{Z}_i \mathbf{L}
++ \left[\mathbf{Z}_i^T (\nabla_{\sigma^2}\boldsymbol{\Omega}_i^{-1})\mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i \mathbf{L} + \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i \mathbf{r}_i^T (\nabla_{\sigma^2}\boldsymbol{\Omega}_i^{-1}) \mathbf{Z}_i \mathbf{L}\right]\right)\\
+&amp;= \text{vec}\left(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i \mathbf{L}\right)
+- \text{vec}\left(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i \mathbf{L} + \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i \mathbf{L}\right)\\
+&amp;= \text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{r}_i\mathbf{r}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})
+\in\mathbb{R}^{q^2\times 1}\\
+&amp;= \left(\nabla^2_{\sigma^2, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right)^T.
 \end{aligned}
-$$</p>
+$$
 </div>
 </div>
 </div>
@@ -7900,7 +7886,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The last block matrix should be the most complicated so let me keep $D_{\mathbf{L}}\boldsymbol{\Sigma}$:
+<p>The last block matrix should be the most complicated so let me keep $D_{\mathbf{L}}\boldsymbol{\Sigma}$
 $$
 \begin{aligned}
 \nabla^2_{\text{vec}\mathbf{L}, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)
@@ -7949,43 +7935,38 @@ $$
 -\mathbf{H}(\ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)), \quad
 E\left[-\mathbf{H}(\ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2))\right],
 $$
-respectively. Taking expectation makes some terms canceled out and simplified due to $E(\mathbf{r}_i) = \mathbf{0}$ and $E(\mathbf{r}_i\mathbf{r}_i^T) = \boldsymbol{\Omega}_i$. Specifically,
+respectively. Taking expectation makes some terms canceled out and simplified due to $E(\mathbf{r}_i) = \mathbf{0}$ and $E(\mathbf{r}_i\mathbf{r}_i^T) = \boldsymbol{\Omega}_i$. Specifically,</p>
 $$
 \begin{aligned}
 E\left[-\nabla^2_{\boldsymbol{\beta}, \boldsymbol{\beta}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
-&amp;= E(\mathbf{X}<em>i^T \boldsymbol{\Omega}_i^{-1}\mathbf{X}_i) = \mathbf{X}_i^T \boldsymbol{\Omega}_i^{-1}\mathbf{X}_i\
-E\left[-\nabla^2</em>{\boldsymbol{\beta}, \sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
-&amp;= E(\mathbf{X}<em>i^T \boldsymbol{\Omega}_i^{-2} \mathbf{r}_i) = \mathbf{0},\
-E\left[-\nabla^2</em>{\boldsymbol{\beta}, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
-&amp;= E\left[-D_{\mathbf{L}}\mathbf{X}<em>i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right]
-= \mathbf{O}\
-E\left[-\nabla^2</em>{\sigma^2, \sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
-&amp;= E\left[\frac{1}{2} \operatorname{tr}(\boldsymbol{\Omega}<em>i^{-2})
--\mathbf{r}_i^T \boldsymbol{\Omega}_i^{-3}\mathbf{r}_i\right] = -\frac{1}{2} \operatorname{tr}(\boldsymbol{\Omega}_i^{-2})\
-&amp;\because E(\mathbf{r}_i^T \boldsymbol{\Omega}_i^{-3}\mathbf{r}_i) = E\left[\text{tr}(\boldsymbol{\Omega}_i^{-3}\mathbf{r}_i\mathbf{r}_i^T)\right] = \text{tr}(\boldsymbol{\Omega}_i^{-3}E(\mathbf{r}_i\mathbf{r}_i^T)) = \text{tr}(\boldsymbol{\Omega}_i^{-2})\
-E\left[-\nabla^2</em>{\text{vec}\mathbf{L}, \sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
-&amp;= -\text{vec}(\mathbf{Z}<em>i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}E(\mathbf{r}_i\mathbf{r}_i^T)\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}E(\mathbf{r}_i\mathbf{r}_i^T)\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})\
-&amp;= -\text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})\
-&amp;= \text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})\
-E\left[-\nabla^2</em>{\text{vec}\mathbf{L}, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
-&amp;= -(\mathbf{L}^T\mathbf{Z}<em>i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i -
+&amp;= E(\mathbf{X}_i^T \boldsymbol{\Omega}_i^{-1}\mathbf{X}_i) = \mathbf{X}_i^T \boldsymbol{\Omega}_i^{-1}\mathbf{X}_i\\
+E\left[-\nabla^2_{\boldsymbol{\beta}, \sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
+&amp;= E(\mathbf{X}_i^T \boldsymbol{\Omega}_i^{-2} \mathbf{r}_i) = \mathbf{0},\\
+E\left[-\nabla^2_{\boldsymbol{\beta}, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
+&amp;= E\left[-D_{\mathbf{L}}\mathbf{X}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right]
+= \mathbf{O}\\
+E\left[-\nabla^2_{\sigma^2, \sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
+&amp;= E\left[\frac{1}{2} \operatorname{tr}(\boldsymbol{\Omega}_i^{-2})
+-\mathbf{r}_i^T \boldsymbol{\Omega}_i^{-3}\mathbf{r}_i\right] = -\frac{1}{2} \operatorname{tr}(\boldsymbol{\Omega}_i^{-2})\\
+&amp;\because E(\mathbf{r}_i^T \boldsymbol{\Omega}_i^{-3}\mathbf{r}_i) = E\left[\text{tr}(\boldsymbol{\Omega}_i^{-3}\mathbf{r}_i\mathbf{r}_i^T)\right] = \text{tr}(\boldsymbol{\Omega}_i^{-3}E(\mathbf{r}_i\mathbf{r}_i^T)) = \text{tr}(\boldsymbol{\Omega}_i^{-2})\\
+E\left[-\nabla^2_{\text{vec}\mathbf{L}, \sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
+&amp;= -\text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}E(\mathbf{r}_i\mathbf{r}_i^T)\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}E(\mathbf{r}_i\mathbf{r}_i^T)\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})\\
+&amp;= -\text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L} - \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})\\
+&amp;= \text{vec}(\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-2}\mathbf{Z}_i\mathbf{L})\\
+E\left[-\nabla^2_{\text{vec}\mathbf{L}, \text{vec}\mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)\right]
+&amp;= -(\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i -
 \mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i - \mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\otimes \mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)
-D</em>{\mathbf{L}}\boldsymbol{\Sigma}\
-&amp;= (\mathbf{L}^T\mathbf{Z}<em>i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)
-D</em>{\mathbf{L}}\boldsymbol{\Sigma}\
-&amp;= (\mathbf{L}^T\mathbf{Z}<em>i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)
-(\mathbf{I}</em>{q^2} + \mathbf{K}_{qq})(\mathbf{L}\otimes\mathbf{I}_q)\
-&amp;= (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)(\mathbf{L}\otimes\mathbf{I}_q)</p>
-<ul>
-<li>(\mathbf{L}^T\mathbf{Z}<em>i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)\mathbf{K}</em>{qq}(\mathbf{L}\otimes\mathbf{I}_q)\</li>
-</ul>
-<p>&amp;= (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L} \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)</p>
-<ul>
-<li>(\mathbf{L}^T\mathbf{Z}<em>i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L})\mathbf{K}</em>{qq}.</li>
-</ul>
-<p>\end{aligned}
-$$
-I learned a lot!</p>
+D_{\mathbf{L}}\boldsymbol{\Sigma}\\
+&amp;= (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)
+D_{\mathbf{L}}\boldsymbol{\Sigma}\\
+&amp;= (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)
+(\mathbf{I}_{q^2} + \mathbf{K}_{qq})(\mathbf{L}\otimes\mathbf{I}_q)\\
+&amp;= (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)(\mathbf{L}\otimes\mathbf{I}_q)
++ (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)\mathbf{K}_{qq}(\mathbf{L}\otimes\mathbf{I}_q)\\
+&amp;= (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L} \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i)
++ (\mathbf{L}^T\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i \otimes\mathbf{Z}_i^T\boldsymbol{\Omega}_i^{-1}\mathbf{Z}_i\mathbf{L})\mathbf{K}_{qq}.
+\end{aligned}
+$$<p>I learned a lot!</p>
 </div>
 </div>
 </div>
@@ -8003,20 +7984,17 @@ $
 \mathbf{\Omega}_i^{-1}
 = \sigma^{-2} \mathbf I_{n_i} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T,
 $
-where $\mathbf{M}\mathbf{M}^T = \mathbf{I}_q + \sigma^{-2}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}$:
+where $\mathbf{M}\mathbf{M}^T = \mathbf{I}_q + \sigma^{-2}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}$:</p>
 $$
 \begin{aligned}
 \nabla_{\boldsymbol{\beta}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)
-&amp;= \mathbf{X}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\
+&amp;= \mathbf{X}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\\
 &amp;= \sigma^{-2}\mathbf{X}_i^T\mathbf{r}_i -
-\sigma^{-4}\mathbf{X}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\
-&amp;= \sigma^{-2}\mathbf{X}_i^T\mathbf{r}_i</p>
-<ul>
-<li>\sigma^{-4}\mathbf{X}_i^T\mathbf{Z}_i\mathbf{L}\mathbf{M}^{-T}\mathbf{M}^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i</li>
-</ul>
-<p>\end{aligned}
-$$
-where $\mathbf{X}_i^T\mathbf{r}_i$ and $\mathbf{Z}_i^T\mathbf{r}_i$ are stored in <code>storage_p</code> and <code>storage_q</code>, respectively.</p>
+\sigma^{-4}\mathbf{X}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\\
+&amp;= \sigma^{-2}\mathbf{X}_i^T\mathbf{r}_i
+- \sigma^{-4}\mathbf{X}_i^T\mathbf{Z}_i\mathbf{L}\mathbf{M}^{-T}\mathbf{M}^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i
+\end{aligned}
+$$<p>where $\mathbf{X}_i^T\mathbf{r}_i$ and $\mathbf{Z}_i^T\mathbf{r}_i$ are stored in <code>storage_p</code> and <code>storage_q</code>, respectively.</p>
 </div>
 </div>
 </div>
@@ -8027,32 +8005,29 @@ where $\mathbf{X}_i^T\mathbf{r}_i$ and $\mathbf{Z}_i^T\mathbf{r}_i$ are stored i
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>For $\nabla_{\sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)$, consider each term separately and merge them:
+<p>For $\nabla_{\sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)$, consider each term separately and merge them.</p>
 $$
 \begin{aligned}
-\operatorname{tr} (\boldsymbol{\Omega}<em>i^{-1})
-&amp;= \operatorname{tr} \left(\sigma^{-2} \mathbf I</em>{n_i} - \sigma^{-4}\mathbf{Z}<em>i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\
-&amp;= n_i\sigma^{-2} - \sigma^{-4}\operatorname{tr} \left(\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\
-&amp;= n_i\sigma^{-2} - \sigma^{-4}\operatorname{tr} \left(\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right),\
-&amp;= n_i\sigma^{-2} - \sigma^{-4}\operatorname{dot} \left(\mathbf{Z}_i^T\mathbf{Z}_i, \mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right),\
+\operatorname{tr} (\boldsymbol{\Omega}_i^{-1})
+&amp;= \operatorname{tr} \left(\sigma^{-2} \mathbf I_{n_i} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\\
+&amp;= n_i\sigma^{-2} - \sigma^{-4}\operatorname{tr} \left(\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\\
+&amp;= n_i\sigma^{-2} - \sigma^{-4}\operatorname{tr} \left(\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right),\\
+&amp;= n_i\sigma^{-2} - \sigma^{-4}\operatorname{dot} \left(\mathbf{Z}_i^T\mathbf{Z}_i, \mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right),\\
 \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-2} \mathbf{r}_i
-&amp;= |\boldsymbol{\Omega}_i^{-1} \mathbf{r}_i|_2^2\
-&amp;= \left|\left(\sigma^{-2} \mathbf I</em>{n_i} - \sigma^{-4}\mathbf{Z}<em>i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\mathbf{r}_i\right|_2^2\
-&amp;= \sigma^{-4}\left|\left(\mathbf I</em>{n_i} - \sigma^{-2}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\mathbf{r}_i\right|_2^2\
-&amp;= \sigma^{-4}\left[\mathbf{r}_i^T\mathbf{r}_i -2\sigma^{-2}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i</p>
-<ul>
-<li>\sigma^{-4}\mathbf{r}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\right]\</li>
-</ul>
-<p>&amp;= \sigma^{-4}\left[\mathbf{r}<em>i^T\mathbf{r}_i - \sigma^{-2}\left(\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\right)^T
+&amp;= \|\boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\|_2^2\\
+&amp;= \left\|\left(\sigma^{-2} \mathbf I_{n_i} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\mathbf{r}_i\right\|_2^2\\
+&amp;= \sigma^{-4}\left\|\left(\mathbf I_{n_i} - \sigma^{-2}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right)\mathbf{r}_i\right\|_2^2\\
+&amp;= \sigma^{-4}\left[\mathbf{r}_i^T\mathbf{r}_i -2\sigma^{-2}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i
++ \sigma^{-4}\mathbf{r}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\right]\\
+&amp;= \sigma^{-4}\left[\mathbf{r}_i^T\mathbf{r}_i - \sigma^{-2}\left(\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\right)^T
 \left(2\mathbf{Z}_i^T\mathbf{r}_i - \sigma^{-2}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\right)\right]
 \end{aligned}
-$$
-and therefore
+$$<p>and therefore
 $$
 \begin{aligned}
-\nabla</em>{\sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)
-&amp;= - \frac{1}{2} \operatorname{tr} (\boldsymbol{\Omega}_i^{-1}) + \frac{1}{2} \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-2} \mathbf{r}_i\
-&amp;= - \frac{n_i\sigma^{-2}}{2} + \frac{\sigma^{-4}}{2}\operatorname{dot} \left(\mathbf{Z}_i^T\mathbf{Z}_i, \mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right)\
+\nabla_{\sigma^2} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)
+&amp;= - \frac{1}{2} \operatorname{tr} (\boldsymbol{\Omega}_i^{-1}) + \frac{1}{2} \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-2} \mathbf{r}_i\\
+&amp;= - \frac{n_i\sigma^{-2}}{2} + \frac{\sigma^{-4}}{2}\operatorname{dot} \left(\mathbf{Z}_i^T\mathbf{Z}_i, \mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right)\\
 &amp;\quad + \frac{\sigma^{-4}}{2}\left[\mathbf{r}_i^T\mathbf{r}_i - \sigma^{-2}\left(\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\right)^T
 \left(2\mathbf{Z}_i^T\mathbf{r}_i - \sigma^{-2}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\mathbf{r}_i\right)\right],
 \end{aligned}
@@ -8068,24 +8043,19 @@ where $\mathbf{r}_i^T\mathbf{r}_i = \mathbf{y}_i^T\mathbf{y}_i + \boldsymbol{\be
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Lastly,
+<p>Lastly,</p>
 $$
 \begin{aligned}
 \frac{\partial}{\partial \mathbf{L}} \ell_i(\boldsymbol{\beta}, \mathbf{L}, \sigma^2)
-&amp;= - \mathbf{Z}<em>i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i\mathbf{L} + \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i\mathbf{L}\
-&amp;= - \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i\mathbf{L} + \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right) \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)^T\mathbf{L}\
-&amp;= - \mathbf{Z}_i^T\left[\sigma^{-2} \mathbf I</em>{n_i} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right]\mathbf{Z}_i\mathbf{L}</p>
-<ul>
-<li>\left(\mathbf{Z}<em>i^T \left[\sigma^{-2} \mathbf I</em>{n_i} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right] \mathbf{r}_i\right) \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)^T\mathbf{L}\</li>
-</ul>
-<p>&amp;= - \left[\sigma^{-2} \mathbf I_{q} - \sigma^{-4}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right] \mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}</p>
-<ul>
-<li>\left[\sigma^{-2} \mathbf I_{q} - \sigma^{-4}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right] \mathbf{Z}_i^T\mathbf{r}_i \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)^T\mathbf{L}\</li>
-</ul>
-<p>&amp;= -\mathbf{W}<em>i\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L} + \mathbf{W}_i\mathbf{Z}_i^T\mathbf{r}_i(\mathbf{W}_i\mathbf{Z}_i^T\mathbf{r}_i)^T\mathbf{L},
+&amp;= - \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i\mathbf{L} + \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i \mathbf{r}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i\mathbf{L}\\
+&amp;= - \mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{Z}_i\mathbf{L} + \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right) \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)^T\mathbf{L}\\
+&amp;= - \mathbf{Z}_i^T\left[\sigma^{-2} \mathbf I_{n_i} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right]\mathbf{Z}_i\mathbf{L}
++ \left(\mathbf{Z}_i^T \left[\sigma^{-2} \mathbf I_{n_i} - \sigma^{-4}\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\mathbf{Z}_i^T\right] \mathbf{r}_i\right) \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)^T\mathbf{L}\\
+&amp;= - \left[\sigma^{-2} \mathbf I_{q} - \sigma^{-4}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right] \mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}
++ \left[\sigma^{-2} \mathbf I_{q} - \sigma^{-4}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T\right] \mathbf{Z}_i^T\mathbf{r}_i \left(\mathbf{Z}_i^T \boldsymbol{\Omega}_i^{-1} \mathbf{r}_i\right)^T\mathbf{L}\\
+&amp;= -\mathbf{W}_i\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L} + \mathbf{W}_i\mathbf{Z}_i^T\mathbf{r}_i(\mathbf{W}_i\mathbf{Z}_i^T\mathbf{r}_i)^T\mathbf{L},
 \end{aligned}
-$$
-where $\mathbf{W}_i = \sigma^{-2} \mathbf I</em>{q} - \sigma^{-4}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T$, which is <em>not</em> symmetric.</p>
+$$<p>where $\mathbf{W}_i = \sigma^{-2} \mathbf I_{q} - \sigma^{-4}\mathbf{Z}_i^T\mathbf{Z}_i\mathbf{L}(\mathbf{M}\mathbf{M}^T)^{-1}\mathbf{L}^T$, which is <em>not</em> symmetric.</p>
 <p>Use my code for <code>log!()</code> developed in HW3. I further pre-allocate <code>storage_q2</code> and <code>storage_qq2</code> for the gradients. Note that a few lines exceed 80 characters, but remember that the criterion for the course is 92 characters.</p>
 </div>
 </div>
@@ -9019,11 +8989,13 @@ $$
 and then the hessian
 $$
 \begin{aligned}
-\frac{\partial^2\sum_i\|\mathbf{r}_i^{(0)} \mathbf{r}_i^{(0)T} - \mathbf{Z}_i \boldsymbol{\Sigma} \mathbf{Z}_i^T \|_{\text{F}}^2}{\partial\mathbf{\Sigma}^2}
-= 2\frac{\partial\sum_i\mathbf{Z}_i^T\mathbf{Z}_i \boldsymbol{\Sigma} \mathbf{Z}_i^T\mathbf{Z}_i}{\partial\mathbf{\Sigma}}
+D_{\boldsymbol{\Sigma}}\left\{-2\sum_i\left[\mathbf{Z}_i^T(\mathbf{r}_i^{(0)} \mathbf{r}_i^{(0)T} - \mathbf{Z}_i \boldsymbol{\Sigma} \mathbf{Z}_i^T ) \mathbf{Z}_i\right]\right\}
+&amp;= 2 D_{\boldsymbol{\Sigma}}\left(\sum_i \mathbf{Z}_i^T\mathbf{Z}_i \boldsymbol{\Sigma} \mathbf{Z}_i^T\mathbf{Z}_i\right)\\
+&amp;= 2 \sum_i D_{\boldsymbol{\Sigma}}\left(\mathbf{Z}_i^T\mathbf{Z}_i \boldsymbol{\Sigma} \mathbf{Z}_i^T\mathbf{Z}_i\right)\\
+&amp;= 2 \sum_i \left(\mathbf{Z}_i^T\mathbf{Z}_i \otimes \mathbf{Z}_i^T\mathbf{Z}_i\right) \succeq\mathbf{O}.
 \end{aligned}
 $$
-should be psd. Therefore, taking the derivative w.r.t $\mathbf{\Sigma}$ equal to zero gives the minimizer, such that
+Therefore, taking the derivative w.r.t $\mathbf{\Sigma}$ equal to zero gives the minimizer, such that
 $$
 \sum_i\mathbf{Z}_i^T\mathbf{Z}_i\boldsymbol{\Sigma}^{(0)}\mathbf{Z}_i^T\mathbf{Z}_i = \sum_i(\mathbf{Z}_i^T\mathbf{r}_i^{(0)})(\mathbf{Z}_i^T\mathbf{r}_i^{(0)})^T.
 $$
@@ -10099,6 +10071,7 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
 <span class="ansi-yellow-intense-fg ansi-bold">│ </span> - To prevent this behaviour, do `ProgressMeter.ijulia_behavior(:append)`. 
 <span class="ansi-yellow-intense-fg ansi-bold">│ </span> - To disable this warning message, do `ProgressMeter.ijulia_behavior(:clear)`.
 <span class="ansi-yellow-intense-fg ansi-bold">└ </span><span class="ansi-black-intense-fg">@ ProgressMeter ~/.julia/packages/ProgressMeter/dMfiC/src/ProgressMeter.jl:594</span>
+
 <span class="ansi-green-fg">Minimizing 192    Time: 0:00:00 ( 1.99 ms/it)</span>
 </pre>
 </div>
@@ -10286,7 +10259,7 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Solution</strong></p>
-<p>My method achieved a runtime that is 100 times faster than <code>lme4</code> and 5-10 times faster than <code>MixedModels.jl</code>, while maintaining the same objective value as these existing methods.</p>
+<p>My method achieved a runtime that is 1000 times faster than <code>lme4</code> and 5-10 times faster than <code>MixedModels.jl</code>, while maintaining the same objective value as these existing methods.</p>
 </div>
 </div>
 </div>
